@@ -255,3 +255,6 @@ help-special: crossplane.help
 # TODO(negz): Update CI to use these targets.
 vendor: go.vendor
 vendor.check: go.vendor.check
+
+login: $(UP)
+	$(UP) login
