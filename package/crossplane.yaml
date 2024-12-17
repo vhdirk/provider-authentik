@@ -3,7 +3,7 @@ kind: Provider
 metadata:
   name: provider-authentik
   annotations:
-    meta.crossplane.io/maintainer: Jacob Colvin <jacobcolvin1@gmail.com>
+    meta.crossplane.io/maintainer: Dirk Van Haerenborgh <vhdirk@gmail.com>
     meta.crossplane.io/source: github.com/vhdirk/provider-authentik
     meta.crossplane.io/license: Apache-2.0
     meta.crossplane.io/description: |

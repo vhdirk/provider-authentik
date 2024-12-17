@@ -8,6 +8,9 @@ metadata:
   name: name
 spec:
   forProvider:
+    allowedRedirectUris:
+    - matching_mode: strict
+      url: http://localhost
     clientId: grafana
     name: grafana
 
