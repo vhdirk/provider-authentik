@@ -102,7 +102,7 @@ spec:
                   subject:
                     description: (String) Defaults to authentik. Defaults to `authentik`.
                     type: string
-                  template:
+                  authentik:
                     description: (String) Defaults to email/password_reset.html. Defaults
                       to `email/password_reset.html`.
                     type: string
@@ -157,7 +157,7 @@ spec:
                   subject:
                     description: (String) Defaults to authentik. Defaults to `authentik`.
                     type: string
-                  template:
+                  authentik:
                     description: (String) Defaults to email/password_reset.html. Defaults
                       to `email/password_reset.html`.
                     type: string
@@ -373,7 +373,7 @@ spec:
                   subject:
                     description: (String) Defaults to authentik. Defaults to `authentik`.
                     type: string
-                  template:
+                  authentik:
                     description: (String) Defaults to email/password_reset.html. Defaults
                       to `email/password_reset.html`.
                     type: string

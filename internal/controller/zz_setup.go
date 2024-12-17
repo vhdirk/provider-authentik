@@ -1,5 +1,5 @@
 /*
-Copyright 2021 Upbound Inc.
+Copyright 2022 Upbound Inc.
 */
 
 package controller
@@ -19,7 +19,6 @@ import (
 	outpost "github.com/vhdirk/provider-authentik/internal/controller/authentik/outpost"
 	scopemapping "github.com/vhdirk/provider-authentik/internal/controller/authentik/scopemapping"
 	serviceconnectionkubernetes "github.com/vhdirk/provider-authentik/internal/controller/authentik/serviceconnectionkubernetes"
-	tenant "github.com/vhdirk/provider-authentik/internal/controller/authentik/tenant"
 	group "github.com/vhdirk/provider-authentik/internal/controller/directory/group"
 	sourceldap "github.com/vhdirk/provider-authentik/internal/controller/directory/sourceldap"
 	sourceoauth "github.com/vhdirk/provider-authentik/internal/controller/directory/sourceoauth"
@@ -80,7 +79,6 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		outpost.Setup,
 		scopemapping.Setup,
 		serviceconnectionkubernetes.Setup,
-		tenant.Setup,
 		group.Setup,
 		sourceldap.Setup,
 		sourceoauth.Setup,

@@ -888,7 +888,7 @@ resources:
             sync_users: (Boolean) Defaults to true.
             sync_users_password: (Boolean) Defaults to true.
             user_object_filter: (String) Defaults to (objectClass=person).
-            user_path_template: (String) Defaults to goauthentik.io/sources/%(slug)s.
+            user_path_authentik: (String) Defaults to goauthentik.io/sources/%(slug)s.
             uuid: (String) Generated.
         importStatements: []
     authentik_source_oauth:
@@ -931,7 +931,7 @@ resources:
             request_token_url: (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
             slug: (String)
             user_matching_mode: (String) Defaults to identifier.
-            user_path_template: (String) Defaults to goauthentik.io/sources/%(slug)s.
+            user_path_authentik: (String) Defaults to goauthentik.io/sources/%(slug)s.
             uuid: (String) Generated.
         importStatements: []
     authentik_source_plex:
@@ -965,7 +965,7 @@ resources:
             policy_engine_mode: (String) Defaults to any.
             slug: (String)
             user_matching_mode: (String) Defaults to identifier.
-            user_path_template: (String) Defaults to goauthentik.io/sources/%(slug)s.
+            user_path_authentik: (String) Defaults to goauthentik.io/sources/%(slug)s.
             uuid: (String) Generated.
         importStatements: []
     authentik_source_saml:
@@ -1008,7 +1008,7 @@ resources:
             sso_url: (String)
             temporary_user_delete_after: (String) Defaults to days=1.
             user_matching_mode: (String) Defaults to identifier.
-            user_path_template: (String) Defaults to goauthentik.io/sources/%(slug)s.
+            user_path_authentik: (String) Defaults to goauthentik.io/sources/%(slug)s.
             uuid: (String) Generated.
         importStatements: []
     authentik_stage_authenticator_duo:
@@ -1213,7 +1213,7 @@ resources:
             password: (String, Sensitive)
             port: (Number) Defaults to 25.
             subject: (String) Defaults to authentik.
-            template: (String) Defaults to email/password_reset.html.
+            authentik: (String) Defaults to email/password_reset.html.
             timeout: (Number) Defaults to 30.
             token_expiry: (Number) Defaults to 30.
             use_global_settings: (Boolean) Defaults to true.
@@ -1420,7 +1420,7 @@ resources:
             id: (String) The ID of this resource.
             name: (String)
             user_creation_mode: (String) Defaults to create_when_required.
-            user_path_template: (String) Defaults to ``.
+            user_path_authentik: (String) Defaults to ``.
         importStatements: []
     authentik_tenant:
         subCategory: System
