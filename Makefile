@@ -255,6 +255,3 @@ help-special: crossplane.help
 # TODO(negz): Update CI to use these targets.
 vendor: go.vendor
 vendor.check: go.vendor.check
-
-publish-package: $(CROSSPLANE_CLI) publish
-
