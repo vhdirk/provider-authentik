@@ -1,7 +1,7 @@
 # Provider Authentik
 
 `provider-authentik` is a [Crossplane](https://crossplane.io/) provider that
-is built using [Upjet](https://github.com/upbound/upjet) code
+is built using [Upjet](https://github.com/crossplane/upjet) code
 generation tools and exposes XRM-conformant managed resources for the
 [Authentik](https://goauthentik.io/) API.
 
@@ -27,7 +27,7 @@ EOF
 
 Notice that in this example Provider resource is referencing ControllerConfig with debug enabled.
 
-You can see the API reference [here](https://doc.crds.dev/github.com/MacroPower/provider-authentik).
+You can see the API reference [here](https://doc.crds.dev/github.com/vhdirk/provider-authentik).
 
 ## Developing
 
@@ -57,4 +57,4 @@ make build
 ## Report a Bug
 
 For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/MacroPower/provider-authentik/issues).
+open an [issue](https://github.com/vhdirk/provider-authentik/issues).

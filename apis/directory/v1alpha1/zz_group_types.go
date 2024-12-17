@@ -77,7 +77,7 @@ type GroupParameters struct {
 	// (List of Number) Generated.
 	// Generated.
 	// +crossplane:generate:reference:type=User
-	// +crossplane:generate:reference:extractor=github.com/upbound/upjet/pkg/resource.ExtractParamPath("id",true)
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	Users []*float64 `json:"users,omitempty" tf:"users,omitempty"`
 

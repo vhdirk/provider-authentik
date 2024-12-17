@@ -14,13 +14,13 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/reconciler/managed"
 	xpresource "github.com/crossplane/crossplane-runtime/pkg/resource"
-	tjcontroller "github.com/upbound/upjet/pkg/controller"
-	"github.com/upbound/upjet/pkg/controller/handler"
-	"github.com/upbound/upjet/pkg/terraform"
+	tjcontroller "github.com/crossplane/upjet/pkg/controller"
+	"github.com/crossplane/upjet/pkg/controller/handler"
+	"github.com/crossplane/upjet/pkg/terraform"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	v1alpha1 "github.com/MacroPower/provider-authentik/apis/stage/v1alpha1"
-	features "github.com/MacroPower/provider-authentik/internal/features"
+	v1alpha1 "github.com/vhdirk/provider-authentik/apis/stage/v1alpha1"
+	features "github.com/vhdirk/provider-authentik/internal/features"
 )
 
 // Setup adds a controller that reconciles Dummy managed resources.

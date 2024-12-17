@@ -9,9 +9,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/upbound/upjet/pkg/pipeline"
+	"github.com/crossplane/upjet/pkg/pipeline"
 
-	"github.com/MacroPower/provider-authentik/config"
+	"github.com/vhdirk/provider-authentik/config"
 )
 
 func main() {

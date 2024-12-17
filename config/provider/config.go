@@ -1,12 +1,12 @@
 package provider
 
-import "github.com/upbound/upjet/pkg/config"
+import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = "provider"
 
 var flowUUIDRef = config.Reference{
-	Type:      "github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.Flow",
-	Extractor: `github.com/upbound/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
+	Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow",
+	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
 }
 
 // Configure configures the provider provider.
@@ -23,8 +23,8 @@ func Configure(p *config.Provider) {
 
 		r.References["authorization_flow"] = flowUUIDRef
 		r.References["property_mappings"] = config.Reference{
-			Type:      "github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.ScopeMapping",
-			Extractor: `github.com/upbound/upjet/pkg/resource.ExtractParamPath("id",true)`,
+			Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.ScopeMapping",
+			Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 		}
 	})
 	p.AddResourceConfigurator("authentik_provider_proxy", func(r *config.Resource) {

@@ -10,14 +10,14 @@ package apis
 import (
 	"k8s.io/apimachinery/pkg/runtime"
 
-	v1alpha1 "github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1"
-	v1alpha1directory "github.com/MacroPower/provider-authentik/apis/directory/v1alpha1"
-	v1alpha1policy "github.com/MacroPower/provider-authentik/apis/policy/v1alpha1"
-	v1alpha1propertymapping "github.com/MacroPower/provider-authentik/apis/propertymapping/v1alpha1"
-	v1alpha1provider "github.com/MacroPower/provider-authentik/apis/provider/v1alpha1"
-	v1alpha1stage "github.com/MacroPower/provider-authentik/apis/stage/v1alpha1"
-	v1alpha1apis "github.com/MacroPower/provider-authentik/apis/v1alpha1"
-	v1beta1 "github.com/MacroPower/provider-authentik/apis/v1beta1"
+	v1alpha1 "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1"
+	v1alpha1directory "github.com/vhdirk/provider-authentik/apis/directory/v1alpha1"
+	v1alpha1policy "github.com/vhdirk/provider-authentik/apis/policy/v1alpha1"
+	v1alpha1propertymapping "github.com/vhdirk/provider-authentik/apis/propertymapping/v1alpha1"
+	v1alpha1provider "github.com/vhdirk/provider-authentik/apis/provider/v1alpha1"
+	v1alpha1stage "github.com/vhdirk/provider-authentik/apis/stage/v1alpha1"
+	v1alpha1apis "github.com/vhdirk/provider-authentik/apis/v1alpha1"
+	v1beta1 "github.com/vhdirk/provider-authentik/apis/v1beta1"
 )
 
 func init() {

@@ -3,4 +3,4 @@ kind: Provider
 metadata:
   name: provider-authentik
 spec:
-  package: MacroPower/provider-authentik:v0.1.0
+  package: vhdirk/provider-authentik:v0.1.0

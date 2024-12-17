@@ -8,19 +8,19 @@ import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
 
-	ujconfig "github.com/upbound/upjet/pkg/config"
+	ujconfig "github.com/crossplane/upjet/pkg/config"
 
-	"github.com/MacroPower/provider-authentik/config/base"
-	"github.com/MacroPower/provider-authentik/config/directory"
-	"github.com/MacroPower/provider-authentik/config/policy"
-	"github.com/MacroPower/provider-authentik/config/propertymapping"
-	"github.com/MacroPower/provider-authentik/config/provider"
-	"github.com/MacroPower/provider-authentik/config/stage"
+	"github.com/vhdirk/provider-authentik/config/base"
+	"github.com/vhdirk/provider-authentik/config/directory"
+	"github.com/vhdirk/provider-authentik/config/policy"
+	"github.com/vhdirk/provider-authentik/config/propertymapping"
+	"github.com/vhdirk/provider-authentik/config/provider"
+	"github.com/vhdirk/provider-authentik/config/stage"
 )
 
 const (
 	resourcePrefix = "authentik"
-	modulePath     = "github.com/MacroPower/provider-authentik"
+	modulePath     = "github.com/vhdirk/provider-authentik"
 )
 
 //go:embed schema.json

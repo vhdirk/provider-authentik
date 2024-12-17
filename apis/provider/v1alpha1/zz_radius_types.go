@@ -42,8 +42,8 @@ type RadiusObservation struct {
 type RadiusParameters struct {
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.Flow
-	// +crossplane:generate:reference:extractor=github.com/upbound/upjet/pkg/resource.ExtractParamPath("uuid",true)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 

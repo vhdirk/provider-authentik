@@ -112,8 +112,8 @@ type SourcePlexParameters struct {
 	AllowedServers []*string `json:"allowedServers,omitempty" tf:"allowed_servers,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.Flow
-	// +crossplane:generate:reference:extractor=github.com/upbound/upjet/pkg/resource.ExtractParamPath("uuid",true)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -135,8 +135,8 @@ type SourcePlexParameters struct {
 	Enabled *bool `json:"enabled,omitempty" tf:"enabled,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.Flow
-	// +crossplane:generate:reference:extractor=github.com/upbound/upjet/pkg/resource.ExtractParamPath("uuid",true)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	EnrollmentFlow *string `json:"enrollmentFlow,omitempty" tf:"enrollment_flow,omitempty"`
 

@@ -1,6 +1,6 @@
 package base
 
-import "github.com/upbound/upjet/pkg/config"
+import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = ""
 
@@ -12,8 +12,8 @@ func Configure(p *config.Provider) {
 		// // TODO: Support generic references
 		// // https://github.com/crossplane/upjet/issues/95
 		// r.References["protocol_provider"] = config.Reference{
-		// 	Type:      "github.com/MacroPower/provider-authentik/apis/provider/v1alpha1.Proxy",
-		// 	Extractor: `github.com/upbound/upjet/pkg/resource.ExtractParamPath("id",true)`,
+		// 	Type:      "github.com/vhdirk/provider-authentik/apis/provider/v1alpha1.Proxy",
+		// 	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 		// }
 	})
 	p.AddResourceConfigurator("authentik_outpost", func(r *config.Resource) {

@@ -7,10 +7,10 @@ package v1alpha1
 
 import (
 	"context"
-	v1alpha1 "github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1"
+	v1alpha1 "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1"
 	reference "github.com/crossplane/crossplane-runtime/pkg/reference"
 	errors "github.com/pkg/errors"
-	resource "github.com/upbound/upjet/pkg/resource"
+	resource "github.com/crossplane/upjet/pkg/resource"
 	client "sigs.k8s.io/controller-runtime/pkg/client"
 )
 

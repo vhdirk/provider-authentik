@@ -16,8 +16,8 @@ import (
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
 	"github.com/crossplane/crossplane-runtime/pkg/ratelimiter"
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
-	tjcontroller "github.com/upbound/upjet/pkg/controller"
-	"github.com/upbound/upjet/pkg/terraform"
+	tjcontroller "github.com/crossplane/upjet/pkg/controller"
+	"github.com/crossplane/upjet/pkg/terraform"
 	"gopkg.in/alecthomas/kingpin.v2"
 	kerrors "k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -26,12 +26,12 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/MacroPower/provider-authentik/apis"
-	"github.com/MacroPower/provider-authentik/apis/v1alpha1"
-	"github.com/MacroPower/provider-authentik/config"
-	"github.com/MacroPower/provider-authentik/internal/clients"
-	"github.com/MacroPower/provider-authentik/internal/controller"
-	"github.com/MacroPower/provider-authentik/internal/features"
+	"github.com/vhdirk/provider-authentik/apis"
+	"github.com/vhdirk/provider-authentik/apis/v1alpha1"
+	"github.com/vhdirk/provider-authentik/config"
+	"github.com/vhdirk/provider-authentik/internal/clients"
+	"github.com/vhdirk/provider-authentik/internal/controller"
+	"github.com/vhdirk/provider-authentik/internal/features"
 )
 
 func main() {

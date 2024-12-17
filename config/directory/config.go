@@ -1,12 +1,12 @@
 package directory
 
-import "github.com/upbound/upjet/pkg/config"
+import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = "directory"
 
 var flowUUIDRef = config.Reference{
-	Type:      "github.com/MacroPower/provider-authentik/apis/authentik/v1alpha1.Flow",
-	Extractor: `github.com/upbound/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
+	Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow",
+	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
 }
 
 // Configure configures the directory provider.
@@ -19,7 +19,7 @@ func Configure(p *config.Provider) {
 
 		r.References["users"] = config.Reference{
 			Type:      "User",
-			Extractor: `github.com/upbound/upjet/pkg/resource.ExtractParamPath("id",true)`,
+			Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 		}
 	})
 	p.AddResourceConfigurator("authentik_source_ldap", func(r *config.Resource) {
