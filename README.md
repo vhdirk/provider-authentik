@@ -10,7 +10,7 @@ generation tools and exposes XRM-conformant managed resources for the
 Install the provider by using the following command after changing the image tag
 to the [latest release](https://marketplace.upbound.io/providers/vhdirk/provider-authentik):
 ```
-up ctp provider install xpkg.upbound.io/vhdirk/provider-authentik:v0.1.0
+up ctp provider install xpkg.upbound.io/vhdirk/provider-authentik:v0.2.0
 ```
 
 Alternatively, you can use declarative installation:
@@ -21,7 +21,7 @@ kind: Provider
 metadata:
   name: provider-authentik
 spec:
-  package: xpkg.upbound.io/vhdirk/provider-authentik:v0.1.0
+  package: xpkg.upbound.io/vhdirk/provider-authentik:v0.2.0
 EOF
 ```
 
