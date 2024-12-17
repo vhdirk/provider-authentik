@@ -115,8 +115,8 @@ func main() {
 	}
 
 	if *enableManagementPolicies {
-		o.Features.Enable(features.EnableAlphaManagementPolicies)
-		log.Info("Alpha feature enabled", "flag", features.EnableAlphaManagementPolicies)
+		o.Features.Enable(features.EnableBetaManagementPolicies)
+		log.Info("Beta feature enabled", "flag", features.EnableBetaManagementPolicies)
 	}
 
 	kingpin.FatalIfError(controller.Setup(mgr, o), "Cannot setup Authentik controllers")
