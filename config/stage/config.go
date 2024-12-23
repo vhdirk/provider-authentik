@@ -1,6 +1,9 @@
 package stage
 
-import "github.com/crossplane/upjet/pkg/config"
+import (
+	"github.com/crossplane/upjet/pkg/config"
+	"github.com/vhdirk/provider-authentik/config/base"
+)
 
 const shortGroup = "stage"
 
@@ -9,6 +12,10 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("authentik_stage_authenticator_duo", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "AuthenticatorDuo"
+	})
+	p.AddResourceConfigurator("stage_authenticator_endpoint_gdtc", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "AuthenticatorEndpointGDTC"
 	})
 	p.AddResourceConfigurator("authentik_stage_authenticator_sms", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
@@ -53,6 +60,8 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("authentik_stage_password", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
+
+		r.References["configure_flow"] = base.FlowUUIDRef
 	})
 	p.AddResourceConfigurator("authentik_stage_prompt", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

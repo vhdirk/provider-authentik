@@ -1,18 +1,17 @@
 package directory
 
-import "github.com/crossplane/upjet/pkg/config"
+import (
+	"github.com/crossplane/upjet/pkg/config"
+	"github.com/vhdirk/provider-authentik/config/base"
+)
 
 const shortGroup = "directory"
-
-var flowUUIDRef = config.Reference{
-	Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow",
-	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
-}
 
 // Configure configures the directory provider.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("authentik_user", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
+		r.Kind = "User"
 	})
 	p.AddResourceConfigurator("authentik_group", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
@@ -30,22 +29,22 @@ func Configure(p *config.Provider) {
 		r.ShortGroup = shortGroup
 		r.Kind = "SourceOAuth"
 
-		r.References["authentication_flow"] = flowUUIDRef
-		r.References["enrollment_flow"] = flowUUIDRef
+		r.References["authentication_flow"] = base.FlowUUIDRef
+		r.References["enrollment_flow"] = base.FlowUUIDRef
 	})
 	p.AddResourceConfigurator("authentik_source_plex", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "SourcePlex"
 
-		r.References["authentication_flow"] = flowUUIDRef
-		r.References["enrollment_flow"] = flowUUIDRef
+		r.References["authentication_flow"] = base.FlowUUIDRef
+		r.References["enrollment_flow"] = base.FlowUUIDRef
 	})
 	p.AddResourceConfigurator("authentik_source_saml", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "SourceSAML"
 
-		r.References["authentication_flow"] = flowUUIDRef
-		r.References["enrollment_flow"] = flowUUIDRef
-		r.References["pre_authentication_flow"] = flowUUIDRef
+		r.References["authentication_flow"] = base.FlowUUIDRef
+		r.References["enrollment_flow"] = base.FlowUUIDRef
+		r.References["pre_authentication_flow"] = base.FlowUUIDRef
 	})
 }
