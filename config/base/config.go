@@ -4,7 +4,7 @@ import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = ""
 
-// Reference a flow
+// FlowUUIDRef references a flow by uuid
 var FlowUUIDRef = config.Reference{
 	Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow",
 	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,

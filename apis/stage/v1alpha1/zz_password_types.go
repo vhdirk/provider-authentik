@@ -23,7 +23,17 @@ type PasswordInitParameters struct {
 	Backends []*string `json:"backends,omitempty" tf:"backends,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	ConfigureFlow *string `json:"configureFlow,omitempty" tf:"configure_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate configureFlow.
+	// +kubebuilder:validation:Optional
+	ConfigureFlowRef *v1.Reference `json:"configureFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate configureFlow.
+	// +kubebuilder:validation:Optional
+	ConfigureFlowSelector *v1.Selector `json:"configureFlowSelector,omitempty" tf:"-"`
 
 	// (Number) Defaults to 5.
 	// Defaults to `5`.
@@ -68,8 +78,18 @@ type PasswordParameters struct {
 	Backends []*string `json:"backends,omitempty" tf:"backends,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	ConfigureFlow *string `json:"configureFlow,omitempty" tf:"configure_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate configureFlow.
+	// +kubebuilder:validation:Optional
+	ConfigureFlowRef *v1.Reference `json:"configureFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate configureFlow.
+	// +kubebuilder:validation:Optional
+	ConfigureFlowSelector *v1.Selector `json:"configureFlowSelector,omitempty" tf:"-"`
 
 	// (Number) Defaults to 5.
 	// Defaults to `5`.

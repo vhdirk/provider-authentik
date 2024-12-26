@@ -3252,6 +3252,16 @@ func (in *PasswordInitParameters) DeepCopyInto(out *PasswordInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.ConfigureFlowRef != nil {
+		in, out := &in.ConfigureFlowRef, &out.ConfigureFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ConfigureFlowSelector != nil {
+		in, out := &in.ConfigureFlowSelector, &out.ConfigureFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.FailedAttemptsBeforeCancel != nil {
 		in, out := &in.FailedAttemptsBeforeCancel, &out.FailedAttemptsBeforeCancel
 		*out = new(float64)
@@ -3380,6 +3390,16 @@ func (in *PasswordParameters) DeepCopyInto(out *PasswordParameters) {
 		in, out := &in.ConfigureFlow, &out.ConfigureFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.ConfigureFlowRef != nil {
+		in, out := &in.ConfigureFlowRef, &out.ConfigureFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.ConfigureFlowSelector != nil {
+		in, out := &in.ConfigureFlowSelector, &out.ConfigureFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.FailedAttemptsBeforeCancel != nil {
 		in, out := &in.FailedAttemptsBeforeCancel, &out.FailedAttemptsBeforeCancel
