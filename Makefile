@@ -54,9 +54,9 @@ GO_SUBDIRS += cmd internal apis
 # Setup Kubernetes tools
 
 KIND_VERSION = v0.15.0
-UP_VERSION = v0.28.0
+UP_VERSION = v0.36.2
 UP_CHANNEL = stable
-UPTEST_VERSION = v0.5.0
+UPTEST_VERSION = v1.2.0
 -include build/makelib/k8s_tools.mk
 
 # ====================================================================================
