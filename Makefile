@@ -250,11 +250,17 @@ crossplane.help:
 
 help-special: crossplane.help
 
-.PHONY: crossplane.help help-special
+
+login: $(UP)
+	$(UP) login
+
+docs:
+	crd-ref-docs --config docs.yaml --renderer markdown --output-path docs/ --source-path apis/ --renderer=markdown
 
 # TODO(negz): Update CI to use these targets.
 vendor: go.vendor
 vendor.check: go.vendor.check
 
-login: $(UP)
-	$(UP) login
+
+.PHONY: crossplane.help help-special login docs
+

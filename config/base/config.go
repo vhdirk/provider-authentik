@@ -4,18 +4,6 @@ import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = ""
 
-// FlowRef references a flow by uuid
-var FlowRef = config.Reference{
-	TerraformName: "authentik_flow",
-	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
-}
-
-// UserRef references a flow by id
-var UserRef = config.Reference{
-	TerraformName: "authentik_user",
-	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
-}
-
 // Configure configures the base provider.
 func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("authentik_application", func(r *config.Resource) {

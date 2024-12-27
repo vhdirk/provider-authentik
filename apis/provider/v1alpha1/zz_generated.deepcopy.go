@@ -1036,6 +1036,16 @@ func (in *OAuth2InitParameters) DeepCopyInto(out *OAuth2InitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow
 		*out = new(string)
@@ -1071,6 +1081,16 @@ func (in *OAuth2InitParameters) DeepCopyInto(out *OAuth2InitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.EncryptionKeyRef != nil {
+		in, out := &in.EncryptionKeyRef, &out.EncryptionKeyRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.EncryptionKeySelector != nil {
+		in, out := &in.EncryptionKeySelector, &out.EncryptionKeySelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.IncludeClaimsInIDToken != nil {
 		in, out := &in.IncludeClaimsInIDToken, &out.IncludeClaimsInIDToken
 		*out = new(bool)
@@ -1080,6 +1100,16 @@ func (in *OAuth2InitParameters) DeepCopyInto(out *OAuth2InitParameters) {
 		in, out := &in.InvalidationFlow, &out.InvalidationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.InvalidationFlowRef != nil {
+		in, out := &in.InvalidationFlowRef, &out.InvalidationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.InvalidationFlowSelector != nil {
+		in, out := &in.InvalidationFlowSelector, &out.InvalidationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.IssuerMode != nil {
 		in, out := &in.IssuerMode, &out.IssuerMode
@@ -1156,6 +1186,16 @@ func (in *OAuth2InitParameters) DeepCopyInto(out *OAuth2InitParameters) {
 		in, out := &in.SigningKey, &out.SigningKey
 		*out = new(string)
 		**out = **in
+	}
+	if in.SigningKeyRef != nil {
+		in, out := &in.SigningKeyRef, &out.SigningKeyRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.SigningKeySelector != nil {
+		in, out := &in.SigningKeySelector, &out.SigningKeySelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SubMode != nil {
 		in, out := &in.SubMode, &out.SubMode
@@ -1402,6 +1442,16 @@ func (in *OAuth2Parameters) DeepCopyInto(out *OAuth2Parameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow
 		*out = new(string)
@@ -1437,6 +1487,16 @@ func (in *OAuth2Parameters) DeepCopyInto(out *OAuth2Parameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.EncryptionKeyRef != nil {
+		in, out := &in.EncryptionKeyRef, &out.EncryptionKeyRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.EncryptionKeySelector != nil {
+		in, out := &in.EncryptionKeySelector, &out.EncryptionKeySelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.IncludeClaimsInIDToken != nil {
 		in, out := &in.IncludeClaimsInIDToken, &out.IncludeClaimsInIDToken
 		*out = new(bool)
@@ -1446,6 +1506,16 @@ func (in *OAuth2Parameters) DeepCopyInto(out *OAuth2Parameters) {
 		in, out := &in.InvalidationFlow, &out.InvalidationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.InvalidationFlowRef != nil {
+		in, out := &in.InvalidationFlowRef, &out.InvalidationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.InvalidationFlowSelector != nil {
+		in, out := &in.InvalidationFlowSelector, &out.InvalidationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.IssuerMode != nil {
 		in, out := &in.IssuerMode, &out.IssuerMode
@@ -1522,6 +1592,16 @@ func (in *OAuth2Parameters) DeepCopyInto(out *OAuth2Parameters) {
 		in, out := &in.SigningKey, &out.SigningKey
 		*out = new(string)
 		**out = **in
+	}
+	if in.SigningKeyRef != nil {
+		in, out := &in.SigningKeyRef, &out.SigningKeyRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.SigningKeySelector != nil {
+		in, out := &in.SigningKeySelector, &out.SigningKeySelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.SubMode != nil {
 		in, out := &in.SubMode, &out.SubMode

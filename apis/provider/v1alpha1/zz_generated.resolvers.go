@@ -24,6 +24,22 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AuthenticationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.ForProvider.AuthenticationFlowRef,
+		Selector:     mg.Spec.ForProvider.AuthenticationFlowSelector,
+		To: reference.To{
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.AuthenticationFlow")
+	}
+	mg.Spec.ForProvider.AuthenticationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.AuthenticationFlowRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AuthorizationFlow),
 		Extract:      resource.ExtractParamPath("uuid", true),
 		Reference:    mg.Spec.ForProvider.AuthorizationFlowRef,
@@ -38,6 +54,38 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	}
 	mg.Spec.ForProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.AuthorizationFlowRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.EncryptionKey),
+		Extract:      resource.ExtractParamPath("id", true),
+		Reference:    mg.Spec.ForProvider.EncryptionKeyRef,
+		Selector:     mg.Spec.ForProvider.EncryptionKeySelector,
+		To: reference.To{
+			List:    &v1alpha1.CertificateKeyPairList{},
+			Managed: &v1alpha1.CertificateKeyPair{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.EncryptionKey")
+	}
+	mg.Spec.ForProvider.EncryptionKey = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.EncryptionKeyRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.InvalidationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.ForProvider.InvalidationFlowRef,
+		Selector:     mg.Spec.ForProvider.InvalidationFlowSelector,
+		To: reference.To{
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.InvalidationFlow")
+	}
+	mg.Spec.ForProvider.InvalidationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.InvalidationFlowRef = rsp.ResolvedReference
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.PropertyMappings),
@@ -56,6 +104,38 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.PropertyMappingsRefs = mrsp.ResolvedReferences
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.SigningKey),
+		Extract:      resource.ExtractParamPath("id", true),
+		Reference:    mg.Spec.ForProvider.SigningKeyRef,
+		Selector:     mg.Spec.ForProvider.SigningKeySelector,
+		To: reference.To{
+			List:    &v1alpha1.CertificateKeyPairList{},
+			Managed: &v1alpha1.CertificateKeyPair{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.SigningKey")
+	}
+	mg.Spec.ForProvider.SigningKey = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.SigningKeyRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.AuthenticationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.InitProvider.AuthenticationFlowRef,
+		Selector:     mg.Spec.InitProvider.AuthenticationFlowSelector,
+		To: reference.To{
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.InitProvider.AuthenticationFlow")
+	}
+	mg.Spec.InitProvider.AuthenticationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.InitProvider.AuthenticationFlowRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.AuthorizationFlow),
 		Extract:      resource.ExtractParamPath("uuid", true),
 		Reference:    mg.Spec.InitProvider.AuthorizationFlowRef,
@@ -70,6 +150,38 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	}
 	mg.Spec.InitProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.AuthorizationFlowRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.EncryptionKey),
+		Extract:      resource.ExtractParamPath("id", true),
+		Reference:    mg.Spec.InitProvider.EncryptionKeyRef,
+		Selector:     mg.Spec.InitProvider.EncryptionKeySelector,
+		To: reference.To{
+			List:    &v1alpha1.CertificateKeyPairList{},
+			Managed: &v1alpha1.CertificateKeyPair{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.InitProvider.EncryptionKey")
+	}
+	mg.Spec.InitProvider.EncryptionKey = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.InitProvider.EncryptionKeyRef = rsp.ResolvedReference
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.InvalidationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.InitProvider.InvalidationFlowRef,
+		Selector:     mg.Spec.InitProvider.InvalidationFlowSelector,
+		To: reference.To{
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.InitProvider.InvalidationFlow")
+	}
+	mg.Spec.InitProvider.InvalidationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.InitProvider.InvalidationFlowRef = rsp.ResolvedReference
 
 	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
 		CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.PropertyMappings),
@@ -86,6 +198,22 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	}
 	mg.Spec.InitProvider.PropertyMappings = reference.ToPtrValues(mrsp.ResolvedValues)
 	mg.Spec.InitProvider.PropertyMappingsRefs = mrsp.ResolvedReferences
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.SigningKey),
+		Extract:      resource.ExtractParamPath("id", true),
+		Reference:    mg.Spec.InitProvider.SigningKeyRef,
+		Selector:     mg.Spec.InitProvider.SigningKeySelector,
+		To: reference.To{
+			List:    &v1alpha1.CertificateKeyPairList{},
+			Managed: &v1alpha1.CertificateKeyPair{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.InitProvider.SigningKey")
+	}
+	mg.Spec.InitProvider.SigningKey = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.InitProvider.SigningKeyRef = rsp.ResolvedReference
 
 	return nil
 }
