@@ -10,6 +10,9 @@ package v1alpha1
 func (tr *AuthenticatorDuo) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *AuthenticatorEndpointGdtc) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *AuthenticatorSMS) Hub() {}
 
 // Hub marks this type as a conversion hub.

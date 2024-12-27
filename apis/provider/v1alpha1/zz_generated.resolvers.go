@@ -19,7 +19,6 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse
-	var mrsp reference.MultiResolutionResponse
 	var err error
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
@@ -38,21 +37,47 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.ForProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.ForProvider.AuthorizationFlowRef = rsp.ResolvedReference
 
-	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.ForProvider.PropertyMappings),
-		Extract:       resource.ExtractParamPath("id", true),
-		References:    mg.Spec.ForProvider.PropertyMappingsRefs,
-		Selector:      mg.Spec.ForProvider.PropertyMappingsSelector,
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.AuthorizationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.InitProvider.AuthorizationFlowRef,
+		Selector:     mg.Spec.InitProvider.AuthorizationFlowSelector,
 		To: reference.To{
-			List:    &v1alpha1.ScopeMappingList{},
-			Managed: &v1alpha1.ScopeMapping{},
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
 		},
 	})
 	if err != nil {
-		return errors.Wrap(err, "mg.Spec.ForProvider.PropertyMappings")
+		return errors.Wrap(err, "mg.Spec.InitProvider.AuthorizationFlow")
 	}
-	mg.Spec.ForProvider.PropertyMappings = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.ForProvider.PropertyMappingsRefs = mrsp.ResolvedReferences
+	mg.Spec.InitProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.InitProvider.AuthorizationFlowRef = rsp.ResolvedReference
+
+	return nil
+}
+
+// ResolveReferences of this Proxy.
+func (mg *Proxy) ResolveReferences(ctx context.Context, c client.Reader) error {
+	r := reference.NewAPIResolver(c, mg)
+
+	var rsp reference.ResolutionResponse
+	var err error
+
+	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
+		CurrentValue: reference.FromPtrValue(mg.Spec.ForProvider.AuthorizationFlow),
+		Extract:      resource.ExtractParamPath("uuid", true),
+		Reference:    mg.Spec.ForProvider.AuthorizationFlowRef,
+		Selector:     mg.Spec.ForProvider.AuthorizationFlowSelector,
+		To: reference.To{
+			List:    &v1alpha1.FlowList{},
+			Managed: &v1alpha1.Flow{},
+		},
+	})
+	if err != nil {
+		return errors.Wrap(err, "mg.Spec.ForProvider.AuthorizationFlow")
+	}
+	mg.Spec.ForProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
+	mg.Spec.ForProvider.AuthorizationFlowRef = rsp.ResolvedReference
 
 	rsp, err = r.Resolve(ctx, reference.ResolutionRequest{
 		CurrentValue: reference.FromPtrValue(mg.Spec.InitProvider.AuthorizationFlow),
@@ -70,27 +95,11 @@ func (mg *OAuth2) ResolveReferences(ctx context.Context, c client.Reader) error 
 	mg.Spec.InitProvider.AuthorizationFlow = reference.ToPtrValue(rsp.ResolvedValue)
 	mg.Spec.InitProvider.AuthorizationFlowRef = rsp.ResolvedReference
 
-	mrsp, err = r.ResolveMultiple(ctx, reference.MultiResolutionRequest{
-		CurrentValues: reference.FromPtrValues(mg.Spec.InitProvider.PropertyMappings),
-		Extract:       resource.ExtractParamPath("id", true),
-		References:    mg.Spec.InitProvider.PropertyMappingsRefs,
-		Selector:      mg.Spec.InitProvider.PropertyMappingsSelector,
-		To: reference.To{
-			List:    &v1alpha1.ScopeMappingList{},
-			Managed: &v1alpha1.ScopeMapping{},
-		},
-	})
-	if err != nil {
-		return errors.Wrap(err, "mg.Spec.InitProvider.PropertyMappings")
-	}
-	mg.Spec.InitProvider.PropertyMappings = reference.ToPtrValues(mrsp.ResolvedValues)
-	mg.Spec.InitProvider.PropertyMappingsRefs = mrsp.ResolvedReferences
-
 	return nil
 }
 
-// ResolveReferences of this Proxy.
-func (mg *Proxy) ResolveReferences(ctx context.Context, c client.Reader) error {
+// ResolveReferences of this RAC.
+func (mg *RAC) ResolveReferences(ctx context.Context, c client.Reader) error {
 	r := reference.NewAPIResolver(c, mg)
 
 	var rsp reference.ResolutionResponse

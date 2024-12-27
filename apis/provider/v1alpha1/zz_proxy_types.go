@@ -65,9 +65,17 @@ type ProxyInitParameters struct {
 	// (String)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String) Allowed values:
 	// Allowed values:
@@ -140,9 +148,17 @@ type ProxyObservation struct {
 	// (String)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String) Allowed values:
 	// Allowed values:
@@ -230,10 +246,20 @@ type ProxyParameters struct {
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	// +kubebuilder:validation:Optional
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// +kubebuilder:validation:Optional
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// +kubebuilder:validation:Optional
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String) Allowed values:
 	// Allowed values:

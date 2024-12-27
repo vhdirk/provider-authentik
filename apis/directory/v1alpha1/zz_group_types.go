@@ -34,15 +34,15 @@ type GroupInitParameters struct {
 
 	// (List of Number) Generated.
 	// Generated.
-	// +crossplane:generate:reference:type=User
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/directory/v1alpha1.User
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	Users []*float64 `json:"users,omitempty" tf:"users,omitempty"`
 
-	// References to User to populate users.
+	// References to User in directory to populate users.
 	// +kubebuilder:validation:Optional
 	UsersRefs []v1.Reference `json:"usersRefs,omitempty" tf:"-"`
 
-	// Selector for a list of User to populate users.
+	// Selector for a list of User in directory to populate users.
 	// +kubebuilder:validation:Optional
 	UsersSelector *v1.Selector `json:"usersSelector,omitempty" tf:"-"`
 }
@@ -100,16 +100,16 @@ type GroupParameters struct {
 
 	// (List of Number) Generated.
 	// Generated.
-	// +crossplane:generate:reference:type=User
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/directory/v1alpha1.User
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	Users []*float64 `json:"users,omitempty" tf:"users,omitempty"`
 
-	// References to User to populate users.
+	// References to User in directory to populate users.
 	// +kubebuilder:validation:Optional
 	UsersRefs []v1.Reference `json:"usersRefs,omitempty" tf:"-"`
 
-	// Selector for a list of User to populate users.
+	// Selector for a list of User in directory to populate users.
 	// +kubebuilder:validation:Optional
 	UsersSelector *v1.Selector `json:"usersSelector,omitempty" tf:"-"`
 }

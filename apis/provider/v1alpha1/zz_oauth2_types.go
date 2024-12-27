@@ -73,25 +73,23 @@ type OAuth2InitParameters struct {
 	// Defaults to `per_provider`.
 	IssuerMode *string `json:"issuerMode,omitempty" tf:"issuer_mode,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String)
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (List of String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.ScopeMapping
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
-
-	// References to ScopeMapping in authentik to populate propertyMappings.
-	// +kubebuilder:validation:Optional
-	PropertyMappingsRefs []v1.Reference `json:"propertyMappingsRefs,omitempty" tf:"-"`
-
-	// Selector for a list of ScopeMapping in authentik to populate propertyMappings.
-	// +kubebuilder:validation:Optional
-	PropertyMappingsSelector *v1.Selector `json:"propertyMappingsSelector,omitempty" tf:"-"`
 
 	// (String) Defaults to days=30.
 	// Defaults to `days=30`.
@@ -161,9 +159,17 @@ type OAuth2Observation struct {
 	// Defaults to `per_provider`.
 	IssuerMode *string `json:"issuerMode,omitempty" tf:"issuer_mode,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String)
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
@@ -262,28 +268,28 @@ type OAuth2Parameters struct {
 	// +kubebuilder:validation:Optional
 	IssuerMode *string `json:"issuerMode,omitempty" tf:"issuer_mode,omitempty"`
 
+	// (List of String) Deprecated. Use jwt_federation_sources instead.
+	// Deprecated. Use `jwt_federation_sources` instead.
+	// +kubebuilder:validation:Optional
+	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+
+	// (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+	// +kubebuilder:validation:Optional
+	JwtFederationProviders []*float64 `json:"jwtFederationProviders,omitempty" tf:"jwt_federation_providers,omitempty"`
+
 	// (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
 	// +kubebuilder:validation:Optional
-	JwksSources []*string `json:"jwksSources,omitempty" tf:"jwks_sources,omitempty"`
+	JwtFederationSources []*string `json:"jwtFederationSources,omitempty" tf:"jwt_federation_sources,omitempty"`
 
 	// (String)
 	// +kubebuilder:validation:Optional
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (List of String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.ScopeMapping
-	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
-
-	// References to ScopeMapping in authentik to populate propertyMappings.
-	// +kubebuilder:validation:Optional
-	PropertyMappingsRefs []v1.Reference `json:"propertyMappingsRefs,omitempty" tf:"-"`
-
-	// Selector for a list of ScopeMapping in authentik to populate propertyMappings.
-	// +kubebuilder:validation:Optional
-	PropertyMappingsSelector *v1.Selector `json:"propertyMappingsSelector,omitempty" tf:"-"`
 
 	// (String) Defaults to days=30.
 	// Defaults to `days=30`.

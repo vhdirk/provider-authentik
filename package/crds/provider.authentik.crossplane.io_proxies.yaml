@@ -192,6 +192,20 @@ spec:
                     type: string
                   jwksSources:
                     description: |-
+                      (List of String) Deprecated. Use jwt_federation_sources instead.
+                      Deprecated. Use `jwt_federation_sources` instead.
+                    items:
+                      type: string
+                    type: array
+                  jwtFederationProviders:
+                    description: |-
+                      (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                      JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                    items:
+                      type: number
+                    type: array
+                  jwtFederationSources:
+                    description: |-
                       (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
                       JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
                     items:
@@ -355,6 +369,20 @@ spec:
                     description: (String)
                     type: string
                   jwksSources:
+                    description: |-
+                      (List of String) Deprecated. Use jwt_federation_sources instead.
+                      Deprecated. Use `jwt_federation_sources` instead.
+                    items:
+                      type: string
+                    type: array
+                  jwtFederationProviders:
+                    description: |-
+                      (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                      JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                    items:
+                      type: number
+                    type: array
+                  jwtFederationSources:
                     description: |-
                       (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
                       JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
@@ -625,6 +653,20 @@ spec:
                     description: (String)
                     type: string
                   jwksSources:
+                    description: |-
+                      (List of String) Deprecated. Use jwt_federation_sources instead.
+                      Deprecated. Use `jwt_federation_sources` instead.
+                    items:
+                      type: string
+                    type: array
+                  jwtFederationProviders:
+                    description: |-
+                      (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                      JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+                    items:
+                      type: number
+                    type: array
+                  jwtFederationSources:
                     description: |-
                       (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
                       JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.

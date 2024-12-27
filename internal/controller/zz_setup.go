@@ -32,18 +32,31 @@ import (
 	expression "github.com/vhdirk/provider-authentik/internal/controller/policy/expression"
 	password "github.com/vhdirk/provider-authentik/internal/controller/policy/password"
 	reputation "github.com/vhdirk/provider-authentik/internal/controller/policy/reputation"
+	googleworkspace "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/googleworkspace"
 	ldap "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/ldap"
+	microsoftentra "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/microsoftentra"
 	notification "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/notification"
 	saml "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/saml"
 	scim "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/scim"
+	googleworkspacepropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/googleworkspace"
+	microsoftentrapropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/microsoftentra"
+	rac "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/rac"
+	radius "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/radius"
+	samlpropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/saml"
+	scimpropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/scim"
+	scope "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/scope"
+	googleworkspaceprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/googleworkspace"
 	ldapprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/ldap"
+	microsoftentraprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/microsoftentra"
 	oauth2 "github.com/vhdirk/provider-authentik/internal/controller/provider/oauth2"
 	proxy "github.com/vhdirk/provider-authentik/internal/controller/provider/proxy"
-	radius "github.com/vhdirk/provider-authentik/internal/controller/provider/radius"
+	racprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/rac"
+	radiusprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/radius"
 	samlprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/saml"
 	scimprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/scim"
 	providerconfig "github.com/vhdirk/provider-authentik/internal/controller/providerconfig"
 	authenticatorduo "github.com/vhdirk/provider-authentik/internal/controller/stage/authenticatorduo"
+	authenticatorendpointgdtc "github.com/vhdirk/provider-authentik/internal/controller/stage/authenticatorendpointgdtc"
 	authenticatorsms "github.com/vhdirk/provider-authentik/internal/controller/stage/authenticatorsms"
 	authenticatorstatic "github.com/vhdirk/provider-authentik/internal/controller/stage/authenticatorstatic"
 	authenticatortotp "github.com/vhdirk/provider-authentik/internal/controller/stage/authenticatortotp"
@@ -92,18 +105,31 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		expression.Setup,
 		password.Setup,
 		reputation.Setup,
+		googleworkspace.Setup,
 		ldap.Setup,
+		microsoftentra.Setup,
 		notification.Setup,
 		saml.Setup,
 		scim.Setup,
+		googleworkspacepropertymappingprovider.Setup,
+		microsoftentrapropertymappingprovider.Setup,
+		rac.Setup,
+		radius.Setup,
+		samlpropertymappingprovider.Setup,
+		scimpropertymappingprovider.Setup,
+		scope.Setup,
+		googleworkspaceprovider.Setup,
 		ldapprovider.Setup,
+		microsoftentraprovider.Setup,
 		oauth2.Setup,
 		proxy.Setup,
-		radius.Setup,
+		racprovider.Setup,
+		radiusprovider.Setup,
 		samlprovider.Setup,
 		scimprovider.Setup,
 		providerconfig.Setup,
 		authenticatorduo.Setup,
+		authenticatorendpointgdtc.Setup,
 		authenticatorsms.Setup,
 		authenticatorstatic.Setup,
 		authenticatortotp.Setup,

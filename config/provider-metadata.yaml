@@ -49,6 +49,41 @@ resources:
             slug: (String)
             uuid: (String) Generated.
         importStatements: []
+    authentik_application_entitlement:
+        subCategory: Applications
+        name: authentik_application_entitlement
+        title: authentik_application_entitlement Resource - terraform-provider-authentik
+        examples:
+            - name: ent
+              manifest: |-
+                {
+                  "application": "${authentik_application.name.uuid}",
+                  "name": "test-ent"
+                }
+              references:
+                application: authentik_application.name.uuid
+              dependencies:
+                authentik_application.name: |-
+                    {
+                      "name": "example-app",
+                      "slug": "example-app"
+                    }
+                authentik_group.group: |-
+                    {
+                      "name": "test-ent-group"
+                    }
+                authentik_policy_binding.test-ent-access: |-
+                    {
+                      "group": "${authentik_group.group.id}",
+                      "order": 0,
+                      "target": "${authentik_application_entitlement.ent.uuid}"
+                    }
+        argumentDocs:
+            application: (String)
+            attributes: (String) JSON format expected. Use jsonencode() to pass objects. Defaults to {}.
+            id: (String) The ID of this resource.
+            name: (String)
+        importStatements: []
     authentik_blueprint:
         subCategory: Blueprints
         name: authentik_blueprint
@@ -266,12 +301,12 @@ resources:
                     }
         argumentDocs:
             any: Defaults to any.
-            evaluate_on_plan: (Boolean) Defaults to true.
+            evaluate_on_plan: (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
             id: (String) The ID of this resource.
             invalid_response_action: '(String) Allowed values:'
             order: (Number)
             policy_engine_mode: '(String) Allowed values:'
-            re_evaluate_policies: (Boolean) Defaults to false.
+            re_evaluate_policies: (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
             restart_with_context: Defaults to retry.
             stage: (String)
             target: (String)
@@ -888,7 +923,9 @@ resources:
             include_claims_in_id_token: (Boolean) Defaults to true.
             invalidation_flow: (String)
             issuer_mode: '(String) Allowed values:'
-            jwks_sources: (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
+            jwks_sources: (List of String) Deprecated. Use jwt_federation_sources instead.
+            jwt_federation_providers: (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+            jwt_federation_sources: (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
             name: (String)
             per_provider: Defaults to per_provider.
             property_mappings: (List of String)
@@ -936,7 +973,9 @@ resources:
             internal_host: (String)
             internal_host_ssl_validation: (Boolean) Defaults to true.
             invalidation_flow: (String)
-            jwks_sources: (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
+            jwks_sources: (List of String) Deprecated. Use jwt_federation_sources instead.
+            jwt_federation_providers: (List of Number) JWTs issued by any of the configured providers can be used to authenticate on behalf of this provider.
+            jwt_federation_sources: (List of String) JWTs issued by keys configured in any of the selected sources can be used to authenticate on behalf of this provider.
             mode: '(String) Allowed values:'
             name: (String)
             property_mappings: (List of String)
@@ -1886,6 +1925,36 @@ resources:
             required: (Boolean) Defaults to false.
             sub_text: (String) Defaults to ``.
             type: '(String) Allowed values:'
+        importStatements: []
+    authentik_stage_redirect:
+        subCategory: Flows & Stages
+        name: authentik_stage_redirect
+        title: authentik_stage_redirect Resource - terraform-provider-authentik
+        examples:
+            - name: static
+              manifest: |-
+                {
+                  "mode": "static",
+                  "name": "static-redirect",
+                  "target_static": "https://goauthentik.io"
+                }
+            - name: flow
+              manifest: |-
+                {
+                  "mode": "flow",
+                  "name": "flow-redirect",
+                  "target_flow": "${data.authentik_flow.default-authorization-flow.id}"
+                }
+              references:
+                target_flow: data.authentik_flow.default-authorization-flow.id
+        argumentDocs:
+            flow: Defaults to flow.
+            id: (String) The ID of this resource.
+            keep_context: (Boolean) Defaults to true.
+            mode: '(String) Allowed values:'
+            name: (String)
+            target_flow: (String)
+            target_static: (String)
         importStatements: []
     authentik_stage_source:
         subCategory: Flows & Stages

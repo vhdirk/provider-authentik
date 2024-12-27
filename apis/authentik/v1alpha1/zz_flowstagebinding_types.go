@@ -15,8 +15,8 @@ import (
 
 type FlowStageBindingInitParameters struct {
 
-	// (Boolean) Defaults to true.
-	// Defaults to `true`.
+	// (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+	// Evaluate policies during the Flow planning process. Defaults to `true`.
 	EvaluateOnPlan *bool `json:"evaluateOnPlan,omitempty" tf:"evaluate_on_plan,omitempty"`
 
 	// (String) Allowed values:
@@ -37,8 +37,8 @@ type FlowStageBindingInitParameters struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (Boolean) Defaults to false.
-	// Defaults to `false`.
+	// (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+	// Evaluate policies when the Stage is present to the user. Defaults to `false`.
 	ReEvaluatePolicies *bool `json:"reEvaluatePolicies,omitempty" tf:"re_evaluate_policies,omitempty"`
 
 	// (String)
@@ -50,8 +50,8 @@ type FlowStageBindingInitParameters struct {
 
 type FlowStageBindingObservation struct {
 
-	// (Boolean) Defaults to true.
-	// Defaults to `true`.
+	// (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+	// Evaluate policies during the Flow planning process. Defaults to `true`.
 	EvaluateOnPlan *bool `json:"evaluateOnPlan,omitempty" tf:"evaluate_on_plan,omitempty"`
 
 	// (String) The ID of this resource.
@@ -75,8 +75,8 @@ type FlowStageBindingObservation struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (Boolean) Defaults to false.
-	// Defaults to `false`.
+	// (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+	// Evaluate policies when the Stage is present to the user. Defaults to `false`.
 	ReEvaluatePolicies *bool `json:"reEvaluatePolicies,omitempty" tf:"re_evaluate_policies,omitempty"`
 
 	// (String)
@@ -88,8 +88,8 @@ type FlowStageBindingObservation struct {
 
 type FlowStageBindingParameters struct {
 
-	// (Boolean) Defaults to true.
-	// Defaults to `true`.
+	// (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+	// Evaluate policies during the Flow planning process. Defaults to `true`.
 	// +kubebuilder:validation:Optional
 	EvaluateOnPlan *bool `json:"evaluateOnPlan,omitempty" tf:"evaluate_on_plan,omitempty"`
 
@@ -114,8 +114,8 @@ type FlowStageBindingParameters struct {
 	// +kubebuilder:validation:Optional
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (Boolean) Defaults to false.
-	// Defaults to `false`.
+	// (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+	// Evaluate policies when the Stage is present to the user. Defaults to `false`.
 	// +kubebuilder:validation:Optional
 	ReEvaluatePolicies *bool `json:"reEvaluatePolicies,omitempty" tf:"re_evaluate_policies,omitempty"`
 

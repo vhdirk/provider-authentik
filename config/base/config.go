@@ -4,10 +4,16 @@ import "github.com/crossplane/upjet/pkg/config"
 
 const shortGroup = ""
 
-// FlowUUIDRef references a flow by uuid
-var FlowUUIDRef = config.Reference{
-	Type:      "github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow",
-	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
+// FlowRef references a flow by uuid
+var FlowRef = config.Reference{
+	TerraformName: "authentik_flow",
+	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)`,
+}
+
+// UserRef references a flow by id
+var UserRef = config.Reference{
+	TerraformName: "authentik_user",
+	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 }
 
 // Configure configures the base provider.

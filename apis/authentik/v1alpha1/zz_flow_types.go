@@ -21,6 +21,7 @@ type FlowInitParameters struct {
 	// - `require_authenticated`
 	// - `require_unauthenticated`
 	// - `require_superuser`
+	// - `require_redirect`
 	// - `require_outpost`
 	// Defaults to `none`.
 	Authentication *string `json:"authentication,omitempty" tf:"authentication,omitempty"`
@@ -80,6 +81,7 @@ type FlowObservation struct {
 	// - `require_authenticated`
 	// - `require_unauthenticated`
 	// - `require_superuser`
+	// - `require_redirect`
 	// - `require_outpost`
 	// Defaults to `none`.
 	Authentication *string `json:"authentication,omitempty" tf:"authentication,omitempty"`
@@ -146,6 +148,7 @@ type FlowParameters struct {
 	// - `require_authenticated`
 	// - `require_unauthenticated`
 	// - `require_superuser`
+	// - `require_redirect`
 	// - `require_outpost`
 	// Defaults to `none`.
 	// +kubebuilder:validation:Optional

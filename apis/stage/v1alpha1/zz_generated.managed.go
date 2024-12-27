@@ -67,6 +67,66 @@ func (mg *AuthenticatorDuo) SetWriteConnectionSecretToReference(r *xpv1.SecretRe
 	mg.Spec.WriteConnectionSecretToReference = r
 }
 
+// GetCondition of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
+	return mg.Status.GetCondition(ct)
+}
+
+// GetDeletionPolicy of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetDeletionPolicy() xpv1.DeletionPolicy {
+	return mg.Spec.DeletionPolicy
+}
+
+// GetManagementPolicies of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetManagementPolicies() xpv1.ManagementPolicies {
+	return mg.Spec.ManagementPolicies
+}
+
+// GetProviderConfigReference of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetProviderConfigReference() *xpv1.Reference {
+	return mg.Spec.ProviderConfigReference
+}
+
+// GetPublishConnectionDetailsTo of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetPublishConnectionDetailsTo() *xpv1.PublishConnectionDetailsTo {
+	return mg.Spec.PublishConnectionDetailsTo
+}
+
+// GetWriteConnectionSecretToReference of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) GetWriteConnectionSecretToReference() *xpv1.SecretReference {
+	return mg.Spec.WriteConnectionSecretToReference
+}
+
+// SetConditions of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetConditions(c ...xpv1.Condition) {
+	mg.Status.SetConditions(c...)
+}
+
+// SetDeletionPolicy of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetDeletionPolicy(r xpv1.DeletionPolicy) {
+	mg.Spec.DeletionPolicy = r
+}
+
+// SetManagementPolicies of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetManagementPolicies(r xpv1.ManagementPolicies) {
+	mg.Spec.ManagementPolicies = r
+}
+
+// SetProviderConfigReference of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetProviderConfigReference(r *xpv1.Reference) {
+	mg.Spec.ProviderConfigReference = r
+}
+
+// SetPublishConnectionDetailsTo of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetPublishConnectionDetailsTo(r *xpv1.PublishConnectionDetailsTo) {
+	mg.Spec.PublishConnectionDetailsTo = r
+}
+
+// SetWriteConnectionSecretToReference of this AuthenticatorEndpointGdtc.
+func (mg *AuthenticatorEndpointGdtc) SetWriteConnectionSecretToReference(r *xpv1.SecretReference) {
+	mg.Spec.WriteConnectionSecretToReference = r
+}
+
 // GetCondition of this AuthenticatorSMS.
 func (mg *AuthenticatorSMS) GetCondition(ct xpv1.ConditionType) xpv1.Condition {
 	return mg.Status.GetCondition(ct)

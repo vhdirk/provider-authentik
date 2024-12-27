@@ -7,13 +7,22 @@ Copyright 2022 Upbound Inc.
 package v1alpha1
 
 // Hub marks this type as a conversion hub.
+func (tr *GoogleWorkspace) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *LDAP) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *MicrosoftEntra) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *OAuth2) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Proxy) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *RAC) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *Radius) Hub() {}

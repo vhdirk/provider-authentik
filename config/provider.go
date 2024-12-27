@@ -14,6 +14,7 @@ import (
 	"github.com/vhdirk/provider-authentik/config/directory"
 	"github.com/vhdirk/provider-authentik/config/policy"
 	"github.com/vhdirk/provider-authentik/config/propertymapping"
+	"github.com/vhdirk/provider-authentik/config/propertymappingprovider"
 	"github.com/vhdirk/provider-authentik/config/provider"
 	"github.com/vhdirk/provider-authentik/config/stage"
 )
@@ -45,6 +46,7 @@ func GetProvider() *ujconfig.Provider {
 		directory.Configure,
 		policy.Configure,
 		propertymapping.Configure,
+		propertymappingprovider.Configure,
 		provider.Configure,
 		stage.Configure,
 	} {

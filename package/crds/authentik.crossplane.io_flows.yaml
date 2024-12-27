@@ -80,6 +80,7 @@ spec:
                       - `require_authenticated`
                       - `require_unauthenticated`
                       - `require_superuser`
+                      - `require_redirect`
                       - `require_outpost`
                       Defaults to `none`.
                     type: string
@@ -157,6 +158,7 @@ spec:
                       - `require_authenticated`
                       - `require_unauthenticated`
                       - `require_superuser`
+                      - `require_redirect`
                       - `require_outpost`
                       Defaults to `none`.
                     type: string
@@ -406,6 +408,7 @@ spec:
                       - `require_authenticated`
                       - `require_unauthenticated`
                       - `require_superuser`
+                      - `require_redirect`
                       - `require_outpost`
                       Defaults to `none`.
                     type: string

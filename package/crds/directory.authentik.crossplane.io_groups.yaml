@@ -101,7 +101,7 @@ spec:
                       type: number
                     type: array
                   usersRefs:
-                    description: References to User to populate users.
+                    description: References to User in directory to populate users.
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -138,7 +138,8 @@ spec:
                       type: object
                     type: array
                   usersSelector:
-                    description: Selector for a list of User to populate users.
+                    description: Selector for a list of User in directory to populate
+                      users.
                     properties:
                       matchControllerRef:
                         description: |-
@@ -220,7 +221,7 @@ spec:
                       type: number
                     type: array
                   usersRefs:
-                    description: References to User to populate users.
+                    description: References to User in directory to populate users.
                     items:
                       description: A Reference to a named object.
                       properties:
@@ -257,7 +258,8 @@ spec:
                       type: object
                     type: array
                   usersSelector:
-                    description: Selector for a list of User to populate users.
+                    description: Selector for a list of User in directory to populate
+                      users.
                     properties:
                       matchControllerRef:
                         description: |-

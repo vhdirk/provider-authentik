@@ -61,7 +61,7 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("authentik_stage_password", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 
-		r.References["configure_flow"] = base.FlowUUIDRef
+		r.References["configure_flow"] = base.FlowRef
 	})
 	p.AddResourceConfigurator("authentik_stage_prompt", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

@@ -74,8 +74,8 @@ spec:
                 properties:
                   evaluateOnPlan:
                     description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                      (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+                      Evaluate policies during the Flow planning process. Defaults to `true`.
                     type: boolean
                   invalidResponseAction:
                     description: |-
@@ -99,8 +99,8 @@ spec:
                     type: string
                   reEvaluatePolicies:
                     description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
+                      (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+                      Evaluate policies when the Stage is present to the user. Defaults to `false`.
                     type: boolean
                   stage:
                     description: (String)
@@ -124,8 +124,8 @@ spec:
                 properties:
                   evaluateOnPlan:
                     description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                      (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+                      Evaluate policies during the Flow planning process. Defaults to `true`.
                     type: boolean
                   invalidResponseAction:
                     description: |-
@@ -149,8 +149,8 @@ spec:
                     type: string
                   reEvaluatePolicies:
                     description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
+                      (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+                      Evaluate policies when the Stage is present to the user. Defaults to `false`.
                     type: boolean
                   stage:
                     description: (String)
@@ -346,8 +346,8 @@ spec:
                 properties:
                   evaluateOnPlan:
                     description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                      (Boolean) Evaluate policies during the Flow planning process. Defaults to true.
+                      Evaluate policies during the Flow planning process. Defaults to `true`.
                     type: boolean
                   id:
                     description: (String) The ID of this resource.
@@ -374,8 +374,8 @@ spec:
                     type: string
                   reEvaluatePolicies:
                     description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
+                      (Boolean) Evaluate policies when the Stage is present to the user. Defaults to false.
+                      Evaluate policies when the Stage is present to the user. Defaults to `false`.
                     type: boolean
                   stage:
                     description: (String)

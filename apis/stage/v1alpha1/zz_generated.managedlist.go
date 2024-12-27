@@ -16,6 +16,15 @@ func (l *AuthenticatorDuoList) GetItems() []resource.Managed {
 	return items
 }
 
+// GetItems of this AuthenticatorEndpointGdtcList.
+func (l *AuthenticatorEndpointGdtcList) GetItems() []resource.Managed {
+	items := make([]resource.Managed, len(l.Items))
+	for i := range l.Items {
+		items[i] = &l.Items[i]
+	}
+	return items
+}
+
 // GetItems of this AuthenticatorSMSList.
 func (l *AuthenticatorSMSList) GetItems() []resource.Managed {
 	items := make([]resource.Managed, len(l.Items))
