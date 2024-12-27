@@ -38,22 +38,24 @@ func Configure(p *config.Provider) {
 		r.References["signing_key"] = base.CertificateKeyPairRef
 		r.References["encryption_key"] = base.CertificateKeyPairRef
 
-		r.References["property_mappings"] = config.Reference{
-			TerraformName: "authentik_property_mapping_provider_scope",
-			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
-		}
+		// r.References["property_mappings"] = base Prop
 	})
 	p.AddResourceConfigurator("authentik_provider_proxy", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Proxy"
 
 		r.References["authorization_flow"] = base.FlowRef
+		r.References["authentication_flow"] = base.FlowRef
+		r.References["invalidation_flow"] = base.FlowRef
+
 	})
 	p.AddResourceConfigurator("authentik_provider_rac", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "RAC"
 
+		r.References["authentication_flow"] = base.FlowRef
 		r.References["authorization_flow"] = base.FlowRef
+
 	})
 	p.AddResourceConfigurator("authentik_provider_radius", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

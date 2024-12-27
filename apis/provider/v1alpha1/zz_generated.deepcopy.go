@@ -1165,18 +1165,6 @@ func (in *OAuth2InitParameters) DeepCopyInto(out *OAuth2InitParameters) {
 			}
 		}
 	}
-	if in.PropertyMappingsRefs != nil {
-		in, out := &in.PropertyMappingsRefs, &out.PropertyMappingsRefs
-		*out = make([]v1.Reference, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.PropertyMappingsSelector != nil {
-		in, out := &in.PropertyMappingsSelector, &out.PropertyMappingsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.RefreshTokenValidity != nil {
 		in, out := &in.RefreshTokenValidity, &out.RefreshTokenValidity
 		*out = new(string)
@@ -1571,18 +1559,6 @@ func (in *OAuth2Parameters) DeepCopyInto(out *OAuth2Parameters) {
 			}
 		}
 	}
-	if in.PropertyMappingsRefs != nil {
-		in, out := &in.PropertyMappingsRefs, &out.PropertyMappingsRefs
-		*out = make([]v1.Reference, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
-	if in.PropertyMappingsSelector != nil {
-		in, out := &in.PropertyMappingsSelector, &out.PropertyMappingsSelector
-		*out = new(v1.Selector)
-		(*in).DeepCopyInto(*out)
-	}
 	if in.RefreshTokenValidity != nil {
 		in, out := &in.RefreshTokenValidity, &out.RefreshTokenValidity
 		*out = new(string)
@@ -1695,6 +1671,16 @@ func (in *ProxyInitParameters) DeepCopyInto(out *ProxyInitParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow
 		*out = new(string)
@@ -1754,6 +1740,16 @@ func (in *ProxyInitParameters) DeepCopyInto(out *ProxyInitParameters) {
 		in, out := &in.InvalidationFlow, &out.InvalidationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.InvalidationFlowRef != nil {
+		in, out := &in.InvalidationFlowRef, &out.InvalidationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.InvalidationFlowSelector != nil {
+		in, out := &in.InvalidationFlowSelector, &out.InvalidationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.JwksSources != nil {
 		in, out := &in.JwksSources, &out.JwksSources
@@ -2025,6 +2021,16 @@ func (in *ProxyParameters) DeepCopyInto(out *ProxyParameters) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
+	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow
 		*out = new(string)
@@ -2084,6 +2090,16 @@ func (in *ProxyParameters) DeepCopyInto(out *ProxyParameters) {
 		in, out := &in.InvalidationFlow, &out.InvalidationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.InvalidationFlowRef != nil {
+		in, out := &in.InvalidationFlowRef, &out.InvalidationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.InvalidationFlowSelector != nil {
+		in, out := &in.InvalidationFlowSelector, &out.InvalidationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.JwksSources != nil {
 		in, out := &in.JwksSources, &out.JwksSources
@@ -2230,6 +2246,16 @@ func (in *RACInitParameters) DeepCopyInto(out *RACInitParameters) {
 		in, out := &in.AuthenticationFlow, &out.AuthenticationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow
@@ -2379,6 +2405,16 @@ func (in *RACParameters) DeepCopyInto(out *RACParameters) {
 		in, out := &in.AuthenticationFlow, &out.AuthenticationFlow
 		*out = new(string)
 		**out = **in
+	}
+	if in.AuthenticationFlowRef != nil {
+		in, out := &in.AuthenticationFlowRef, &out.AuthenticationFlowRef
+		*out = new(v1.Reference)
+		(*in).DeepCopyInto(*out)
+	}
+	if in.AuthenticationFlowSelector != nil {
+		in, out := &in.AuthenticationFlowSelector, &out.AuthenticationFlowSelector
+		*out = new(v1.Selector)
+		(*in).DeepCopyInto(*out)
 	}
 	if in.AuthorizationFlow != nil {
 		in, out := &in.AuthorizationFlow, &out.AuthorizationFlow

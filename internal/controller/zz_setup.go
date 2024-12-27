@@ -36,22 +36,28 @@ import (
 	ldap "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/ldap"
 	microsoftentra "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/microsoftentra"
 	notification "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/notification"
+	providergoogleworkspace "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providergoogleworkspace"
+	providermicrosoftentra "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providermicrosoftentra"
+	providerrac "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providerrac"
+	providerradius "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providerradius"
+	providersaml "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providersaml"
+	providerscim "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providerscim"
+	providerscope "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/providerscope"
 	saml "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/saml"
 	scim "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/scim"
-	googleworkspacepropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/googleworkspace"
-	microsoftentrapropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/microsoftentra"
-	rac "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/rac"
-	radius "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/radius"
-	samlpropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/saml"
-	scimpropertymappingprovider "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/scim"
-	scope "github.com/vhdirk/provider-authentik/internal/controller/propertymappingprovider/scope"
+	sourcekerberos "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourcekerberos"
+	sourceldappropertymapping "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourceldap"
+	sourceoauthpropertymapping "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourceoauth"
+	sourceplexpropertymapping "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourceplex"
+	sourcesamlpropertymapping "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourcesaml"
+	sourcescim "github.com/vhdirk/provider-authentik/internal/controller/propertymapping/sourcescim"
 	googleworkspaceprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/googleworkspace"
 	ldapprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/ldap"
 	microsoftentraprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/microsoftentra"
 	oauth2 "github.com/vhdirk/provider-authentik/internal/controller/provider/oauth2"
 	proxy "github.com/vhdirk/provider-authentik/internal/controller/provider/proxy"
-	racprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/rac"
-	radiusprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/radius"
+	rac "github.com/vhdirk/provider-authentik/internal/controller/provider/rac"
+	radius "github.com/vhdirk/provider-authentik/internal/controller/provider/radius"
 	samlprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/saml"
 	scimprovider "github.com/vhdirk/provider-authentik/internal/controller/provider/scim"
 	providerconfig "github.com/vhdirk/provider-authentik/internal/controller/providerconfig"
@@ -109,22 +115,28 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		ldap.Setup,
 		microsoftentra.Setup,
 		notification.Setup,
+		providergoogleworkspace.Setup,
+		providermicrosoftentra.Setup,
+		providerrac.Setup,
+		providerradius.Setup,
+		providersaml.Setup,
+		providerscim.Setup,
+		providerscope.Setup,
 		saml.Setup,
 		scim.Setup,
-		googleworkspacepropertymappingprovider.Setup,
-		microsoftentrapropertymappingprovider.Setup,
-		rac.Setup,
-		radius.Setup,
-		samlpropertymappingprovider.Setup,
-		scimpropertymappingprovider.Setup,
-		scope.Setup,
+		sourcekerberos.Setup,
+		sourceldappropertymapping.Setup,
+		sourceoauthpropertymapping.Setup,
+		sourceplexpropertymapping.Setup,
+		sourcesamlpropertymapping.Setup,
+		sourcescim.Setup,
 		googleworkspaceprovider.Setup,
 		ldapprovider.Setup,
 		microsoftentraprovider.Setup,
 		oauth2.Setup,
 		proxy.Setup,
-		racprovider.Setup,
-		radiusprovider.Setup,
+		rac.Setup,
+		radius.Setup,
 		samlprovider.Setup,
 		scimprovider.Setup,
 		providerconfig.Setup,

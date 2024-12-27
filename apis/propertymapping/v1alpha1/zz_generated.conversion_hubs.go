@@ -19,7 +19,46 @@ func (tr *MicrosoftEntra) Hub() {}
 func (tr *Notification) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *ProviderGoogleWorkspace) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderMicrosoftEntra) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderRAC) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderRadius) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderSAML) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderSCIM) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *ProviderScope) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *SAML) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *SCIM) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourceKerberos) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourceLDAP) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourceOAuth) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourcePlex) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourceSAML) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *SourceSCIM) Hub() {}

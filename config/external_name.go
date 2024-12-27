@@ -51,6 +51,13 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_property_mapping_provider_scim":             config.IdentifierFromProvider,
 	"authentik_property_mapping_provider_scope":            config.IdentifierFromProvider,
 
+	"authentik_property_mapping_source_kerberos": config.IdentifierFromProvider,
+	"authentik_property_mapping_source_ldap":     config.IdentifierFromProvider,
+	"authentik_property_mapping_source_oauth":    config.IdentifierFromProvider,
+	"authentik_property_mapping_source_plex":     config.IdentifierFromProvider,
+	"authentik_property_mapping_source_saml":     config.IdentifierFromProvider,
+	"authentik_property_mapping_source_scim":     config.IdentifierFromProvider,
+
 	"authentik_provider_google_workspace": config.IdentifierFromProvider,
 	"authentik_provider_ldap":             config.IdentifierFromProvider,
 	"authentik_provider_microsoft_entra":  config.IdentifierFromProvider,

@@ -20,7 +20,17 @@ type ProxyInitParameters struct {
 	AccessTokenValidity *string `json:"accessTokenValidity,omitempty" tf:"access_token_validity,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate authenticationFlow.
+	// +kubebuilder:validation:Optional
+	AuthenticationFlowRef *v1.Reference `json:"authenticationFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate authenticationFlow.
+	// +kubebuilder:validation:Optional
+	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
@@ -63,7 +73,17 @@ type ProxyInitParameters struct {
 	InternalHostSSLValidation *bool `json:"internalHostSslValidation,omitempty" tf:"internal_host_ssl_validation,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate invalidationFlow.
+	// +kubebuilder:validation:Optional
+	InvalidationFlowRef *v1.Reference `json:"invalidationFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate invalidationFlow.
+	// +kubebuilder:validation:Optional
+	InvalidationFlowSelector *v1.Selector `json:"invalidationFlowSelector,omitempty" tf:"-"`
 
 	// (List of String) Deprecated. Use jwt_federation_sources instead.
 	// Deprecated. Use `jwt_federation_sources` instead.
@@ -190,8 +210,18 @@ type ProxyParameters struct {
 	AccessTokenValidity *string `json:"accessTokenValidity,omitempty" tf:"access_token_validity,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate authenticationFlow.
+	// +kubebuilder:validation:Optional
+	AuthenticationFlowRef *v1.Reference `json:"authenticationFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate authenticationFlow.
+	// +kubebuilder:validation:Optional
+	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
 	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
@@ -243,8 +273,18 @@ type ProxyParameters struct {
 	InternalHostSSLValidation *bool `json:"internalHostSslValidation,omitempty" tf:"internal_host_ssl_validation,omitempty"`
 
 	// (String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
+
+	// Reference to a Flow in authentik to populate invalidationFlow.
+	// +kubebuilder:validation:Optional
+	InvalidationFlowRef *v1.Reference `json:"invalidationFlowRef,omitempty" tf:"-"`
+
+	// Selector for a Flow in authentik to populate invalidationFlow.
+	// +kubebuilder:validation:Optional
+	InvalidationFlowSelector *v1.Selector `json:"invalidationFlowSelector,omitempty" tf:"-"`
 
 	// (List of String) Deprecated. Use jwt_federation_sources instead.
 	// Deprecated. Use `jwt_federation_sources` instead.
@@ -325,7 +365,6 @@ type Proxy struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.externalHost) || (has(self.initProvider) && has(self.initProvider.externalHost))",message="spec.forProvider.externalHost is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.invalidationFlow) || (has(self.initProvider) && has(self.initProvider.invalidationFlow))",message="spec.forProvider.invalidationFlow is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
 	Spec   ProxySpec   `json:"spec"`
 	Status ProxyStatus `json:"status,omitempty"`
