@@ -33,10 +33,10 @@ func Configure(p *config.Provider) {
 		r.Kind = "OAuth2"
 
 		r.References["authorization_flow"] = base.FlowRef
-		// r.References["property_mappings"] = config.Reference{
-		// 	TerraformName: "authentik_property_mapping_provider_scope",
-		// 	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
-		// }
+		r.References["property_mappings"] = config.Reference{
+			TerraformName: "authentik_property_mapping_provider_scope",
+			Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
+		}
 	})
 	p.AddResourceConfigurator("authentik_provider_proxy", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

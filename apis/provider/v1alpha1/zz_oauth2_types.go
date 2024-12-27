@@ -89,7 +89,17 @@ type OAuth2InitParameters struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (List of String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/propertymappingprovider/v1alpha1.Scope
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
+
+	// References to Scope in propertymappingprovider to populate propertyMappings.
+	// +kubebuilder:validation:Optional
+	PropertyMappingsRefs []v1.Reference `json:"propertyMappingsRefs,omitempty" tf:"-"`
+
+	// Selector for a list of Scope in propertymappingprovider to populate propertyMappings.
+	// +kubebuilder:validation:Optional
+	PropertyMappingsSelector *v1.Selector `json:"propertyMappingsSelector,omitempty" tf:"-"`
 
 	// (String) Defaults to days=30.
 	// Defaults to `days=30`.
@@ -288,8 +298,18 @@ type OAuth2Parameters struct {
 	Name *string `json:"name,omitempty" tf:"name,omitempty"`
 
 	// (List of String)
+	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/propertymappingprovider/v1alpha1.Scope
+	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	PropertyMappings []*string `json:"propertyMappings,omitempty" tf:"property_mappings,omitempty"`
+
+	// References to Scope in propertymappingprovider to populate propertyMappings.
+	// +kubebuilder:validation:Optional
+	PropertyMappingsRefs []v1.Reference `json:"propertyMappingsRefs,omitempty" tf:"-"`
+
+	// Selector for a list of Scope in propertymappingprovider to populate propertyMappings.
+	// +kubebuilder:validation:Optional
+	PropertyMappingsSelector *v1.Selector `json:"propertyMappingsSelector,omitempty" tf:"-"`
 
 	// (String) Defaults to days=30.
 	// Defaults to `days=30`.
