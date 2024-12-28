@@ -48,7 +48,7 @@ type ApplicationInitParameters struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// (Number)
-	ProtocolProvider *float64 `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
+	ProtocolProvider *string `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
 
 	// (String) Generated.
 	// Generated.
@@ -93,7 +93,7 @@ type ApplicationObservation struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// (Number)
-	ProtocolProvider *float64 `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
+	ProtocolProvider *string `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
 
 	// (String) Generated.
 	// Generated.
@@ -145,7 +145,7 @@ type ApplicationParameters struct {
 
 	// (Number)
 	// +kubebuilder:validation:Optional
-	ProtocolProvider *float64 `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
+	ProtocolProvider *string `json:"protocolProvider,omitempty" tf:"protocol_provider,omitempty"`
 
 	// (String) Generated.
 	// Generated.
@@ -190,6 +190,7 @@ type Application struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
+	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.protocolProvider) || (has(self.initProvider) && has(self.initProvider.protocolProvider))",message="spec.forProvider.protocolProvider is a required parameter"
 	Spec   ApplicationSpec   `json:"spec"`
 	Status ApplicationStatus `json:"status,omitempty"`
 }

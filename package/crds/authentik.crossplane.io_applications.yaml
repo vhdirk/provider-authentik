@@ -110,7 +110,7 @@ spec:
                     type: string
                   protocolProvider:
                     description: (Number)
-                    type: number
+                    type: string
                   uuid:
                     description: |-
                       (String) Generated.
@@ -168,7 +168,7 @@ spec:
                     type: string
                   protocolProvider:
                     description: (Number)
-                    type: number
+                    type: string
                   uuid:
                     description: |-
                       (String) Generated.
@@ -347,6 +347,10 @@ spec:
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
                 || (has(self.initProvider) && has(self.initProvider.name))'
+            - message: spec.forProvider.protocolProvider is a required parameter
+              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.protocolProvider)
+                || (has(self.initProvider) && has(self.initProvider.protocolProvider))'
           status:
             description: ApplicationStatus defines the observed state of Application.
             properties:
@@ -393,7 +397,7 @@ spec:
                     type: string
                   protocolProvider:
                     description: (Number)
-                    type: number
+                    type: string
                   uuid:
                     description: |-
                       (String) Generated.

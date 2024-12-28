@@ -12,17 +12,20 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_application":                   config.ParameterAsIdentifier("slug"),
 	"authentik_outpost":                       config.IdentifierFromProvider,
 	"authentik_service_connection_kubernetes": config.IdentifierFromProvider,
-	"authentik_blueprint":                     config.IdentifierFromProvider,
-	"authentik_flow":                          config.ParameterAsIdentifier("slug"),
-	"authentik_flow_stage_binding":            config.IdentifierFromProvider,
 	"authentik_scope_mapping":                 config.IdentifierFromProvider,
 	"authentik_certificate_key_pair":          config.IdentifierFromProvider,
-	"authentik_tenant":                        config.IdentifierFromProvider,
-	"authentik_event_rule":                    config.IdentifierFromProvider,
-	"authentik_event_transport":               config.IdentifierFromProvider,
+	"authentik_blueprint":                     config.IdentifierFromProvider,
 
-	"authentik_user":         config.IdentifierFromProvider,
-	"authentik_group":        config.IdentifierFromProvider,
+	"authentik_flow":               config.ParameterAsIdentifier("slug"),
+	"authentik_flow_stage_binding": config.IdentifierFromProvider,
+
+	"authentik_event_rule":      config.IdentifierFromProvider,
+	"authentik_event_transport": config.IdentifierFromProvider,
+
+	"authentik_user":   config.IdentifierFromProvider,
+	"authentik_group":  config.IdentifierFromProvider,
+	"authentik_tenant": config.IdentifierFromProvider,
+
 	"authentik_source_ldap":  config.IdentifierFromProvider,
 	"authentik_source_oauth": config.IdentifierFromProvider,
 	"authentik_source_plex":  config.IdentifierFromProvider,

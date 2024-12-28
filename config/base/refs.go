@@ -20,19 +20,19 @@ var CertificateKeyPairRef = config.Reference{
 	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 }
 
-// PropertyMappingRACRef references a signing key by id
+// PropertyMappingRACRef references a RAC property mapping by id
 var PropertyMappingRACRef = config.Reference{
 	TerraformName: "authentik_property_mapping_rac",
 	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 }
 
-// PropertyMappingProviderScopeRef references a signing key by id
+// PropertyMappingProviderScopeRef references a scope property mapping provider by id
 var PropertyMappingProviderScopeRef = config.Reference{
 	TerraformName: "authentik_property_mapping_provider_scope",
 	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 }
 
-// PropertyMappingProviderRACRef references a signing key by id
+// PropertyMappingProviderRACRef references a RAC property mapping provider by id
 var PropertyMappingProviderRACRef = config.Reference{
 	TerraformName: "authentik_property_mapping_provider_rac",
 	Extractor:     `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
