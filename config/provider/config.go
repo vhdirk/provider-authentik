@@ -2,7 +2,7 @@ package provider
 
 import (
 	"github.com/crossplane/upjet/pkg/config"
-	"github.com/vhdirk/provider-authentik/config/base"
+	"github.com/vhdirk/crossplane-provider-authentik/config/base"
 )
 
 const shortGroup = "provider"

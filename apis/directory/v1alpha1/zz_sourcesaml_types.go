@@ -20,7 +20,7 @@ type SourceSAMLInitParameters struct {
 	AllowIdpInitiated *bool `json:"allowIdpInitiated,omitempty" tf:"allow_idp_initiated,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -57,7 +57,7 @@ type SourceSAMLInitParameters struct {
 	EncryptionKp *string `json:"encryptionKp,omitempty" tf:"encryption_kp,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	EnrollmentFlow *string `json:"enrollmentFlow,omitempty" tf:"enrollment_flow,omitempty"`
 
@@ -101,7 +101,7 @@ type SourceSAMLInitParameters struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	PreAuthenticationFlow *string `json:"preAuthenticationFlow,omitempty" tf:"pre_authentication_flow,omitempty"`
 
@@ -296,7 +296,7 @@ type SourceSAMLParameters struct {
 	AllowIdpInitiated *bool `json:"allowIdpInitiated,omitempty" tf:"allow_idp_initiated,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
@@ -338,7 +338,7 @@ type SourceSAMLParameters struct {
 	EncryptionKp *string `json:"encryptionKp,omitempty" tf:"encryption_kp,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	EnrollmentFlow *string `json:"enrollmentFlow,omitempty" tf:"enrollment_flow,omitempty"`
@@ -388,7 +388,7 @@ type SourceSAMLParameters struct {
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	PreAuthenticationFlow *string `json:"preAuthenticationFlow,omitempty" tf:"pre_authentication_flow,omitempty"`

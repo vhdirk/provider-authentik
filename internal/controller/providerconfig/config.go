@@ -11,7 +11,7 @@ import (
 	tjcontroller "github.com/crossplane/upjet/pkg/controller"
 	ctrl "sigs.k8s.io/controller-runtime"
 
-	"github.com/vhdirk/provider-authentik/apis/v1beta1"
+	"github.com/vhdirk/crossplane-provider-authentik/apis/v1beta1"
 )
 
 // Setup adds a controller that reconciles ProviderConfigs by accounting for

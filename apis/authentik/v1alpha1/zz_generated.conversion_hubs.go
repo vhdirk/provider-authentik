@@ -35,3 +35,6 @@ func (tr *ScopeMapping) Hub() {}
 
 // Hub marks this type as a conversion hub.
 func (tr *ServiceConnectionKubernetes) Hub() {}
+
+// Hub marks this type as a conversion hub.
+func (tr *Token) Hub() {}

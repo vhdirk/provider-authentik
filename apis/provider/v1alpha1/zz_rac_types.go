@@ -15,7 +15,7 @@ import (
 
 type RACInitParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -27,7 +27,7 @@ type RACInitParameters struct {
 	// +kubebuilder:validation:Optional
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
@@ -70,7 +70,7 @@ type RACObservation struct {
 
 type RACParameters struct {
 
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
@@ -83,7 +83,7 @@ type RACParameters struct {
 	// +kubebuilder:validation:Optional
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`

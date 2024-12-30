@@ -6,30 +6,37 @@ const shortGroup = "propertymapping"
 
 // Configure configures the propertymapping provider.
 func Configure(p *config.Provider) {
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_google_workspace", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "GoogleWorkspace"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_ldap", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "LDAP"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_microsoft_entra", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "MicrosoftEntra"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_notification", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Notification"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_rac", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "RAC"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_saml", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "SAML"
 	})
+	// deprectated
 	p.AddResourceConfigurator("authentik_property_mapping_scim", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "SCIM"

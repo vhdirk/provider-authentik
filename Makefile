@@ -2,7 +2,7 @@
 # Setup Project
 
 PROJECT_NAME ?= provider-authentik
-PROJECT_REPO ?= github.com/vhdirk/$(PROJECT_NAME)
+PROJECT_REPO ?= github.com/vhdirk/crossplane-$(PROJECT_NAME)
 export TERRAFORM_VERSION ?= 1.5.7
 
 # Do not allow a version of terraform greater than 1.5.x, due to versions 1.6+ being

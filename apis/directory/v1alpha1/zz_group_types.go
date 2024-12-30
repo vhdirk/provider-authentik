@@ -34,7 +34,7 @@ type GroupInitParameters struct {
 
 	// (List of Number) Generated.
 	// Generated.
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/directory/v1alpha1.User
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/directory/v1alpha1.User
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	Users []*float64 `json:"users,omitempty" tf:"users,omitempty"`
 
@@ -100,7 +100,7 @@ type GroupParameters struct {
 
 	// (List of Number) Generated.
 	// Generated.
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/directory/v1alpha1.User
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/directory/v1alpha1.User
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	Users []*float64 `json:"users,omitempty" tf:"users,omitempty"`

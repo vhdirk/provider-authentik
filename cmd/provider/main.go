@@ -26,12 +26,12 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/cache"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/vhdirk/provider-authentik/apis"
-	"github.com/vhdirk/provider-authentik/apis/v1alpha1"
-	"github.com/vhdirk/provider-authentik/config"
-	"github.com/vhdirk/provider-authentik/internal/clients"
-	"github.com/vhdirk/provider-authentik/internal/controller"
-	"github.com/vhdirk/provider-authentik/internal/features"
+	"github.com/vhdirk/crossplane-provider-authentik/apis"
+	"github.com/vhdirk/crossplane-provider-authentik/apis/v1alpha1"
+	"github.com/vhdirk/crossplane-provider-authentik/config"
+	"github.com/vhdirk/crossplane-provider-authentik/internal/clients"
+	"github.com/vhdirk/crossplane-provider-authentik/internal/controller"
+	"github.com/vhdirk/crossplane-provider-authentik/internal/features"
 )
 
 func main() {
@@ -80,6 +80,10 @@ func main() {
 	})
 	kingpin.FatalIfError(err, "Cannot create controller manager")
 	kingpin.FatalIfError(apis.AddToScheme(mgr.GetScheme()), "Cannot add Authentik APIs to scheme")
+
+	provider, err := config.GetProvider(false)
+	kingpin.FatalIfError(err, "Cannot get provider configuration")
+
 	o := tjcontroller.Options{
 		Options: xpcontroller.Options{
 			Logger:                  log,
@@ -88,7 +92,7 @@ func main() {
 			MaxConcurrentReconciles: *maxReconcileRate,
 			Features:                &feature.Flags{},
 		},
-		Provider: config.GetProvider(),
+		Provider: provider,
 		// use the following WorkspaceStoreOption to enable the shared gRPC mode
 		// terraform.WithProviderRunner(terraform.NewSharedProvider(log, os.Getenv("TERRAFORM_NATIVE_PROVIDER_PATH"), terraform.WithNativeProviderArgs("-debuggable")))
 		WorkspaceStore: terraform.NewWorkspaceStore(log),

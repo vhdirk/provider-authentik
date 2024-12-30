@@ -20,7 +20,7 @@ type ProxyInitParameters struct {
 	AccessTokenValidity *string `json:"accessTokenValidity,omitempty" tf:"access_token_validity,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -33,7 +33,7 @@ type ProxyInitParameters struct {
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
@@ -73,7 +73,7 @@ type ProxyInitParameters struct {
 	InternalHostSSLValidation *bool `json:"internalHostSslValidation,omitempty" tf:"internal_host_ssl_validation,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
@@ -210,7 +210,7 @@ type ProxyParameters struct {
 	AccessTokenValidity *string `json:"accessTokenValidity,omitempty" tf:"access_token_validity,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
@@ -224,7 +224,7 @@ type ProxyParameters struct {
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
@@ -273,7 +273,7 @@ type ProxyParameters struct {
 	InternalHostSSLValidation *bool `json:"internalHostSslValidation,omitempty" tf:"internal_host_ssl_validation,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`

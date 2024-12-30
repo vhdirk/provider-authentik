@@ -4,7 +4,7 @@ metadata:
   name: provider-authentik
   annotations:
     meta.crossplane.io/maintainer: Dirk Van Haerenborgh <vhdirk@gmail.com>
-    meta.crossplane.io/source: github.com/vhdirk/provider-authentik
+    meta.crossplane.io/source: github.com/vhdirk/crossplane-provider-authentik
     meta.crossplane.io/license: Apache-2.0
     meta.crossplane.io/description: |
       Crossplane provider to manage Authentik resources.

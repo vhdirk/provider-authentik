@@ -16,7 +16,7 @@ func Configure(p *config.Provider) {
 		// // TODO: Support generic references
 		// // https://github.com/crossplane/upjet/issues/95
 		// r.References["protocol_provider"] = config.Reference{
-		// 	Type:      "github.com/vhdirk/provider-authentik/apis/provider/v1alpha1.Proxy",
+		// 	Type:      "github.com/vhdirk/crossplane-provider-authentik/apis/provider/v1alpha1.Proxy",
 		// 	Extractor: `github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)`,
 		// }
 
@@ -49,6 +49,23 @@ func Configure(p *config.Provider) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Flow"
 
+		// Add a field override for the "slug" field
+		r.References["slug"] = config.Reference{
+			Type: "string",
+		}
+
+		// // Optionally, you can set it as optional or computed if required
+		// r.UseFieldOverrides(map[string]config.FieldOverride{
+		// 	"slug": {
+		// 		TerraformFieldSchema: &schema.Schema{
+		// 			Type:        schema.TypeString,
+		// 			Optional:    true,
+		// 			Computed:    true,
+		// 			Description: "Unique identifier for the flow.",
+		// 		},
+		// 	},
+		// })
+
 		r.TerraformResource.Schema["slug"] = &schema.Schema{
 			Type:        schema.TypeString,
 			Optional:    true,
@@ -56,15 +73,22 @@ func Configure(p *config.Provider) {
 			Description: "Unique identifier for the flow.",
 		}
 
+		if s, ok := r.TerraformResource.Schema["slug"]; ok {
+			s.Optional = false
+			s.Computed = true
+		}
+
 	})
 	p.AddResourceConfigurator("authentik_flow_stage_binding", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "FlowStageBinding"
 	})
+	// deprecated
 	p.AddResourceConfigurator("authentik_scope_mapping", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "ScopeMapping"
 	})
+
 	p.AddResourceConfigurator("authentik_certificate_key_pair", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "CertificateKeyPair"
@@ -72,6 +96,10 @@ func Configure(p *config.Provider) {
 	p.AddResourceConfigurator("authentik_tenant", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
 		r.Kind = "Tenant"
+	})
+	p.AddResourceConfigurator("authentik_token", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "Token"
 	})
 	p.AddResourceConfigurator("authentik_event_rule", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

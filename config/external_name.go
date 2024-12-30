@@ -12,7 +12,6 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_application":                   config.ParameterAsIdentifier("slug"),
 	"authentik_outpost":                       config.IdentifierFromProvider,
 	"authentik_service_connection_kubernetes": config.IdentifierFromProvider,
-	"authentik_scope_mapping":                 config.IdentifierFromProvider,
 	"authentik_certificate_key_pair":          config.IdentifierFromProvider,
 	"authentik_blueprint":                     config.IdentifierFromProvider,
 
@@ -25,6 +24,7 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_user":   config.IdentifierFromProvider,
 	"authentik_group":  config.IdentifierFromProvider,
 	"authentik_tenant": config.IdentifierFromProvider,
+	"authentik_token":  config.IdentifierFromProvider,
 
 	"authentik_source_ldap":  config.IdentifierFromProvider,
 	"authentik_source_oauth": config.IdentifierFromProvider,
@@ -39,6 +39,7 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_policy_password":      config.IdentifierFromProvider,
 	"authentik_policy_reputation":    config.IdentifierFromProvider,
 
+	"authentik_scope_mapping":                     config.IdentifierFromProvider,
 	"authentik_property_mapping_google_workspace": config.IdentifierFromProvider,
 	"authentik_property_mapping_microsoft_entra":  config.IdentifierFromProvider,
 	"authentik_property_mapping_ldap":             config.IdentifierFromProvider,

@@ -27,7 +27,7 @@ type OAuth2InitParameters struct {
 	AllowedRedirectUris []map[string]*string `json:"allowedRedirectUris,omitempty" tf:"allowed_redirect_uris,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
 
@@ -40,7 +40,7 @@ type OAuth2InitParameters struct {
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
 
@@ -67,7 +67,7 @@ type OAuth2InitParameters struct {
 	ClientType *string `json:"clientType,omitempty" tf:"client_type,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	EncryptionKey *string `json:"encryptionKey,omitempty" tf:"encryption_key,omitempty"`
 
@@ -84,7 +84,7 @@ type OAuth2InitParameters struct {
 	IncludeClaimsInIDToken *bool `json:"includeClaimsInIdToken,omitempty" tf:"include_claims_in_id_token,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
 
@@ -126,7 +126,7 @@ type OAuth2InitParameters struct {
 	RefreshTokenValidity *string `json:"refreshTokenValidity,omitempty" tf:"refresh_token_validity,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	SigningKey *string `json:"signingKey,omitempty" tf:"signing_key,omitempty"`
 
@@ -253,7 +253,7 @@ type OAuth2Parameters struct {
 	AllowedRedirectUris []map[string]*string `json:"allowedRedirectUris,omitempty" tf:"allowed_redirect_uris,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthenticationFlow *string `json:"authenticationFlow,omitempty" tf:"authentication_flow,omitempty"`
@@ -267,7 +267,7 @@ type OAuth2Parameters struct {
 	AuthenticationFlowSelector *v1.Selector `json:"authenticationFlowSelector,omitempty" tf:"-"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	AuthorizationFlow *string `json:"authorizationFlow,omitempty" tf:"authorization_flow,omitempty"`
@@ -298,7 +298,7 @@ type OAuth2Parameters struct {
 	ClientType *string `json:"clientType,omitempty" tf:"client_type,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	EncryptionKey *string `json:"encryptionKey,omitempty" tf:"encryption_key,omitempty"`
@@ -317,7 +317,7 @@ type OAuth2Parameters struct {
 	IncludeClaimsInIDToken *bool `json:"includeClaimsInIdToken,omitempty" tf:"include_claims_in_id_token,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.Flow
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.Flow
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("uuid",true)
 	// +kubebuilder:validation:Optional
 	InvalidationFlow *string `json:"invalidationFlow,omitempty" tf:"invalidation_flow,omitempty"`
@@ -367,7 +367,7 @@ type OAuth2Parameters struct {
 	RefreshTokenValidity *string `json:"refreshTokenValidity,omitempty" tf:"refresh_token_validity,omitempty"`
 
 	// (String)
-	// +crossplane:generate:reference:type=github.com/vhdirk/provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
+	// +crossplane:generate:reference:type=github.com/vhdirk/crossplane-provider-authentik/apis/authentik/v1alpha1.CertificateKeyPair
 	// +crossplane:generate:reference:extractor=github.com/crossplane/upjet/pkg/resource.ExtractParamPath("id",true)
 	// +kubebuilder:validation:Optional
 	SigningKey *string `json:"signingKey,omitempty" tf:"signing_key,omitempty"`
