@@ -4,7 +4,7 @@ kind: CustomResourceDefinition
 metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.14.0
-  name: sourceldaps.directory.authentik.crossplane.io
+  name: sourcekerberos.directory.authentik.crossplane.io
 spec:
   group: directory.authentik.crossplane.io
   names:
@@ -12,10 +12,10 @@ spec:
     - crossplane
     - managed
     - authentik
-    kind: SourceLDAP
-    listKind: SourceLDAPList
-    plural: sourceldaps
-    singular: sourceldap
+    kind: SourceKerberos
+    listKind: SourceKerberosList
+    plural: sourcekerberos
+    singular: sourcekerberos
   scope: Cluster
   versions:
   - additionalPrinterColumns:
@@ -34,7 +34,8 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: SourceLDAP is the Schema for the SourceLDAPs API.
+        description: SourceKerberos is the Schema for the SourceKerbeross API. <no
+          value>
         properties:
           apiVersion:
             description: |-
@@ -54,7 +55,7 @@ spec:
           metadata:
             type: object
           spec:
-            description: SourceLDAPSpec defines the desired state of SourceLDAP
+            description: SourceKerberosSpec defines the desired state of SourceKerberos
             properties:
               deletionPolicy:
                 default: Delete
@@ -72,24 +73,47 @@ spec:
                 type: string
               forProvider:
                 properties:
-                  additionalGroupDn:
+                  authenticationFlow:
+                    type: string
+                  enabled:
+                    description: Defaults to `true`.
+                    type: boolean
+                  enrollmentFlow:
+                    type: string
+                  groupMatchingMode:
                     description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
+                      Allowed values:
+                      - `identifier`
+                      - `name_link`
+                      - `name_deny`
+                      Defaults to `identifier`.
                     type: string
-                  additionalUserDn:
+                  krb5Conf:
+                    description: Custom krb5.conf to use. Uses the system one by default
+                    type: string
+                  name:
+                    type: string
+                  passwordLoginUpdateInternalPassword:
+                    description: If enabled, the authentik-stored password will be
+                      updated upon login with the Kerberos password backend Defaults
+                      to `false`.
+                    type: boolean
+                  policyEngineMode:
                     description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
+                      Allowed values:
+                      - `all`
+                      - `any`
+                      Defaults to `any`.
                     type: string
-                  baseDn:
-                    description: (String)
+                  realm:
+                    description: Kerberos realm
                     type: string
-                  bindCn:
-                    description: (String)
+                  spnegoCcache:
+                    description: Credential cache to use for SPNEGO in form type:residual
                     type: string
-                  bindPasswordSecretRef:
-                    description: (String, Sensitive)
+                  spnegoKeytabSecretRef:
+                    description: SPNEGO keytab base64-encoded or path to keytab in
+                      the form FILE:path
                     properties:
                       key:
                         description: The key to select.
@@ -105,89 +129,74 @@ spec:
                     - name
                     - namespace
                     type: object
-                  enabled:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  groupMembershipField:
-                    description: |-
-                      (String) Defaults to member.
-                      Defaults to `member`.
+                  spnegoServerName:
+                    description: Force the use of a specific server name for SPNEGO
                     type: string
-                  groupObjectFilter:
-                    description: |-
-                      (String) Defaults to (objectClass=group).
-                      Defaults to `(objectClass=group)`.
+                  syncCcache:
+                    description: Credentials cache to authenticate to kadmin for sync.
+                      Must be in the form TYPE:residual
                     type: string
-                  name:
-                    description: (String)
-                    type: string
-                  objectUniquenessField:
-                    description: |-
-                      (String) Defaults to objectSid.
-                      Defaults to `objectSid`.
-                    type: string
-                  passwordLoginUpdateInternalPassword:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
-                    type: boolean
-                  propertyMappings:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  propertyMappingsGroup:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  serverUri:
-                    description: (String)
-                    type: string
-                  sni:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
-                    type: boolean
-                  startTls:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncGroups:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncParentGroup:
-                    description: (String)
+                  syncKeytabSecretRef:
+                    description: Keytab to authenticate to kadmin for sync. Must be
+                      base64-encoded or in the form TYPE:residual
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  syncPasswordSecretRef:
+                    description: Password to authenticate to kadmin for sync
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  syncPrincipal:
+                    description: Principal to authenticate to kadmin for sync.
                     type: string
                   syncUsers:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: Sync users from Kerberos into authentik Defaults
+                      to `true`.
                     type: boolean
                   syncUsersPassword:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: When a user changes their password, sync it back
+                      to Kerberos Defaults to `true`.
                     type: boolean
-                  userObjectFilter:
+                  userMatchingMode:
                     description: |-
-                      (String) Defaults to (objectClass=person).
-                      Defaults to `(objectClass=person)`.
+                      Allowed values:
+                      - `identifier`
+                      - `email_link`
+                      - `email_deny`
+                      - `username_link`
+                      - `username_deny`
+                      Defaults to `identifier`.
                     type: string
                   userPathTemplate:
-                    description: |-
-                      (String) Defaults to goauthentik.io/sources/%(slug)s.
-                      Defaults to `goauthentik.io/sources/%(slug)s`.
+                    description: Defaults to `goauthentik.io/sources/%(slug)s`.
                     type: string
                   uuid:
-                    description: |-
-                      (String) Generated.
-                      Generated.
+                    description: Generated.
                     type: string
                 type: object
               initProvider:
@@ -203,24 +212,47 @@ spec:
                   for example because of an external controller is managing them, like an
                   autoscaler.
                 properties:
-                  additionalGroupDn:
+                  authenticationFlow:
+                    type: string
+                  enabled:
+                    description: Defaults to `true`.
+                    type: boolean
+                  enrollmentFlow:
+                    type: string
+                  groupMatchingMode:
                     description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
+                      Allowed values:
+                      - `identifier`
+                      - `name_link`
+                      - `name_deny`
+                      Defaults to `identifier`.
                     type: string
-                  additionalUserDn:
+                  krb5Conf:
+                    description: Custom krb5.conf to use. Uses the system one by default
+                    type: string
+                  name:
+                    type: string
+                  passwordLoginUpdateInternalPassword:
+                    description: If enabled, the authentik-stored password will be
+                      updated upon login with the Kerberos password backend Defaults
+                      to `false`.
+                    type: boolean
+                  policyEngineMode:
                     description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
+                      Allowed values:
+                      - `all`
+                      - `any`
+                      Defaults to `any`.
                     type: string
-                  baseDn:
-                    description: (String)
+                  realm:
+                    description: Kerberos realm
                     type: string
-                  bindCn:
-                    description: (String)
+                  spnegoCcache:
+                    description: Credential cache to use for SPNEGO in form type:residual
                     type: string
-                  bindPasswordSecretRef:
-                    description: (String, Sensitive)
+                  spnegoKeytabSecretRef:
+                    description: SPNEGO keytab base64-encoded or path to keytab in
+                      the form FILE:path
                     properties:
                       key:
                         description: The key to select.
@@ -236,92 +268,75 @@ spec:
                     - name
                     - namespace
                     type: object
-                  enabled:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  groupMembershipField:
-                    description: |-
-                      (String) Defaults to member.
-                      Defaults to `member`.
+                  spnegoServerName:
+                    description: Force the use of a specific server name for SPNEGO
                     type: string
-                  groupObjectFilter:
-                    description: |-
-                      (String) Defaults to (objectClass=group).
-                      Defaults to `(objectClass=group)`.
+                  syncCcache:
+                    description: Credentials cache to authenticate to kadmin for sync.
+                      Must be in the form TYPE:residual
                     type: string
-                  name:
-                    description: (String)
-                    type: string
-                  objectUniquenessField:
-                    description: |-
-                      (String) Defaults to objectSid.
-                      Defaults to `objectSid`.
-                    type: string
-                  passwordLoginUpdateInternalPassword:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
-                    type: boolean
-                  propertyMappings:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  propertyMappingsGroup:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  serverUri:
-                    description: (String)
-                    type: string
-                  sni:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
-                    type: boolean
-                  startTls:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncGroups:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncParentGroup:
-                    description: (String)
+                  syncKeytabSecretRef:
+                    description: Keytab to authenticate to kadmin for sync. Must be
+                      base64-encoded or in the form TYPE:residual
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  syncPasswordSecretRef:
+                    description: Password to authenticate to kadmin for sync
+                    properties:
+                      key:
+                        description: The key to select.
+                        type: string
+                      name:
+                        description: Name of the secret.
+                        type: string
+                      namespace:
+                        description: Namespace of the secret.
+                        type: string
+                    required:
+                    - key
+                    - name
+                    - namespace
+                    type: object
+                  syncPrincipal:
+                    description: Principal to authenticate to kadmin for sync.
                     type: string
                   syncUsers:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: Sync users from Kerberos into authentik Defaults
+                      to `true`.
                     type: boolean
                   syncUsersPassword:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: When a user changes their password, sync it back
+                      to Kerberos Defaults to `true`.
                     type: boolean
-                  userObjectFilter:
+                  userMatchingMode:
                     description: |-
-                      (String) Defaults to (objectClass=person).
-                      Defaults to `(objectClass=person)`.
+                      Allowed values:
+                      - `identifier`
+                      - `email_link`
+                      - `email_deny`
+                      - `username_link`
+                      - `username_deny`
+                      Defaults to `identifier`.
                     type: string
                   userPathTemplate:
-                    description: |-
-                      (String) Defaults to goauthentik.io/sources/%(slug)s.
-                      Defaults to `goauthentik.io/sources/%(slug)s`.
+                    description: Defaults to `goauthentik.io/sources/%(slug)s`.
                     type: string
                   uuid:
-                    description: |-
-                      (String) Generated.
-                      Generated.
+                    description: Generated.
                     type: string
-                required:
-                - bindPasswordSecretRef
                 type: object
               managementPolicies:
                 default:
@@ -491,132 +506,92 @@ spec:
             - forProvider
             type: object
             x-kubernetes-validations:
-            - message: spec.forProvider.baseDn is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.baseDn)
-                || (has(self.initProvider) && has(self.initProvider.baseDn))'
-            - message: spec.forProvider.bindCn is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.bindCn)
-                || (has(self.initProvider) && has(self.initProvider.bindCn))'
-            - message: spec.forProvider.bindPasswordSecretRef is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.bindPasswordSecretRef)'
             - message: spec.forProvider.name is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
                 || (has(self.initProvider) && has(self.initProvider.name))'
-            - message: spec.forProvider.serverUri is a required parameter
+            - message: spec.forProvider.realm is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.serverUri)
-                || (has(self.initProvider) && has(self.initProvider.serverUri))'
+                || ''Update'' in self.managementPolicies) || has(self.forProvider.realm)
+                || (has(self.initProvider) && has(self.initProvider.realm))'
           status:
-            description: SourceLDAPStatus defines the observed state of SourceLDAP.
+            description: SourceKerberosStatus defines the observed state of SourceKerberos.
             properties:
               atProvider:
                 properties:
-                  additionalGroupDn:
-                    description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
-                    type: string
-                  additionalUserDn:
-                    description: |-
-                      (String) Defaults to “.
-                      Defaults to “.
-                    type: string
-                  baseDn:
-                    description: (String)
-                    type: string
-                  bindCn:
-                    description: (String)
+                  authenticationFlow:
                     type: string
                   enabled:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: Defaults to `true`.
                     type: boolean
-                  groupMembershipField:
-                    description: |-
-                      (String) Defaults to member.
-                      Defaults to `member`.
+                  enrollmentFlow:
                     type: string
-                  groupObjectFilter:
+                  groupMatchingMode:
                     description: |-
-                      (String) Defaults to (objectClass=group).
-                      Defaults to `(objectClass=group)`.
+                      Allowed values:
+                      - `identifier`
+                      - `name_link`
+                      - `name_deny`
+                      Defaults to `identifier`.
                     type: string
                   id:
-                    description: (String) The ID of this resource.
+                    type: string
+                  krb5Conf:
+                    description: Custom krb5.conf to use. Uses the system one by default
                     type: string
                   name:
-                    description: (String)
-                    type: string
-                  objectUniquenessField:
-                    description: |-
-                      (String) Defaults to objectSid.
-                      Defaults to `objectSid`.
                     type: string
                   passwordLoginUpdateInternalPassword:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
+                    description: If enabled, the authentik-stored password will be
+                      updated upon login with the Kerberos password backend Defaults
+                      to `false`.
                     type: boolean
-                  propertyMappings:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  propertyMappingsGroup:
-                    description: (List of String)
-                    items:
-                      type: string
-                    type: array
-                  serverUri:
-                    description: (String)
+                  policyEngineMode:
+                    description: |-
+                      Allowed values:
+                      - `all`
+                      - `any`
+                      Defaults to `any`.
                     type: string
-                  sni:
-                    description: |-
-                      (Boolean) Defaults to false.
-                      Defaults to `false`.
-                    type: boolean
-                  startTls:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncGroups:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
-                    type: boolean
-                  syncParentGroup:
-                    description: (String)
+                  realm:
+                    description: Kerberos realm
+                    type: string
+                  spnegoCcache:
+                    description: Credential cache to use for SPNEGO in form type:residual
+                    type: string
+                  spnegoServerName:
+                    description: Force the use of a specific server name for SPNEGO
+                    type: string
+                  syncCcache:
+                    description: Credentials cache to authenticate to kadmin for sync.
+                      Must be in the form TYPE:residual
+                    type: string
+                  syncPrincipal:
+                    description: Principal to authenticate to kadmin for sync.
                     type: string
                   syncUsers:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: Sync users from Kerberos into authentik Defaults
+                      to `true`.
                     type: boolean
                   syncUsersPassword:
-                    description: |-
-                      (Boolean) Defaults to true.
-                      Defaults to `true`.
+                    description: When a user changes their password, sync it back
+                      to Kerberos Defaults to `true`.
                     type: boolean
-                  userObjectFilter:
+                  userMatchingMode:
                     description: |-
-                      (String) Defaults to (objectClass=person).
-                      Defaults to `(objectClass=person)`.
+                      Allowed values:
+                      - `identifier`
+                      - `email_link`
+                      - `email_deny`
+                      - `username_link`
+                      - `username_deny`
+                      Defaults to `identifier`.
                     type: string
                   userPathTemplate:
-                    description: |-
-                      (String) Defaults to goauthentik.io/sources/%(slug)s.
-                      Defaults to `goauthentik.io/sources/%(slug)s`.
+                    description: Defaults to `goauthentik.io/sources/%(slug)s`.
                     type: string
                   uuid:
-                    description: |-
-                      (String) Generated.
-                      Generated.
+                    description: Generated.
                     type: string
                 type: object
               conditions:

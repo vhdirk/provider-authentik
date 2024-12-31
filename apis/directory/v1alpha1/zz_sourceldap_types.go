@@ -64,9 +64,6 @@ type SourceLDAPInitParameters struct {
 	// (String)
 	ServerURI *string `json:"serverUri,omitempty" tf:"server_uri,omitempty"`
 
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (Boolean) Defaults to false.
 	// Defaults to `false`.
 	Sni *bool `json:"sni,omitempty" tf:"sni,omitempty"`
@@ -153,9 +150,6 @@ type SourceLDAPObservation struct {
 
 	// (String)
 	ServerURI *string `json:"serverUri,omitempty" tf:"server_uri,omitempty"`
-
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
 
 	// (Boolean) Defaults to false.
 	// Defaults to `false`.
@@ -258,10 +252,6 @@ type SourceLDAPParameters struct {
 	// +kubebuilder:validation:Optional
 	ServerURI *string `json:"serverUri,omitempty" tf:"server_uri,omitempty"`
 
-	// (String)
-	// +kubebuilder:validation:Optional
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (Boolean) Defaults to false.
 	// Defaults to `false`.
 	// +kubebuilder:validation:Optional
@@ -348,7 +338,6 @@ type SourceLDAP struct {
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.bindPasswordSecretRef)",message="spec.forProvider.bindPasswordSecretRef is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.serverUri) || (has(self.initProvider) && has(self.initProvider.serverUri))",message="spec.forProvider.serverUri is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.slug) || (has(self.initProvider) && has(self.initProvider.slug))",message="spec.forProvider.slug is a required parameter"
 	Spec   SourceLDAPSpec   `json:"spec"`
 	Status SourceLDAPStatus `json:"status,omitempty"`
 }

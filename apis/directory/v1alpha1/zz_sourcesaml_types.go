@@ -134,9 +134,6 @@ type SourceSAMLInitParameters struct {
 	SigningKp *string `json:"signingKp,omitempty" tf:"signing_kp,omitempty"`
 
 	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
-	// (String)
 	SsoURL *string `json:"ssoUrl,omitempty" tf:"sso_url,omitempty"`
 
 	// (String) Defaults to days=1.
@@ -258,9 +255,6 @@ type SourceSAMLObservation struct {
 
 	// (String)
 	SigningKp *string `json:"signingKp,omitempty" tf:"signing_kp,omitempty"`
-
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
 
 	// (String)
 	SsoURL *string `json:"ssoUrl,omitempty" tf:"sso_url,omitempty"`
@@ -426,10 +420,6 @@ type SourceSAMLParameters struct {
 
 	// (String)
 	// +kubebuilder:validation:Optional
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
-	// (String)
-	// +kubebuilder:validation:Optional
 	SsoURL *string `json:"ssoUrl,omitempty" tf:"sso_url,omitempty"`
 
 	// (String) Defaults to days=1.
@@ -496,7 +486,6 @@ type SourceSAML struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.slug) || (has(self.initProvider) && has(self.initProvider.slug))",message="spec.forProvider.slug is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.ssoUrl) || (has(self.initProvider) && has(self.initProvider.ssoUrl))",message="spec.forProvider.ssoUrl is a required parameter"
 	Spec   SourceSAMLSpec   `json:"spec"`
 	Status SourceSAMLStatus `json:"status,omitempty"`

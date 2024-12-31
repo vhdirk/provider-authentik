@@ -10,6 +10,9 @@ package v1alpha1
 func (tr *Group) Hub() {}
 
 // Hub marks this type as a conversion hub.
+func (tr *SourceKerberos) Hub() {}
+
+// Hub marks this type as a conversion hub.
 func (tr *SourceLDAP) Hub() {}
 
 // Hub marks this type as a conversion hub.

@@ -18,5 +18,4 @@ spec:
     preAuthenticationFlowSelector:
       matchLabels:
         testing.upbound.io/example-name: authentik_flow
-    slug: test-source
     ssoUrl: http://localhost

@@ -21,6 +21,7 @@ import (
 	serviceconnectionkubernetes "github.com/vhdirk/crossplane-provider-authentik/internal/controller/authentik/serviceconnectionkubernetes"
 	token "github.com/vhdirk/crossplane-provider-authentik/internal/controller/authentik/token"
 	group "github.com/vhdirk/crossplane-provider-authentik/internal/controller/directory/group"
+	sourcekerberos "github.com/vhdirk/crossplane-provider-authentik/internal/controller/directory/sourcekerberos"
 	sourceldap "github.com/vhdirk/crossplane-provider-authentik/internal/controller/directory/sourceldap"
 	sourceoauth "github.com/vhdirk/crossplane-provider-authentik/internal/controller/directory/sourceoauth"
 	sourceplex "github.com/vhdirk/crossplane-provider-authentik/internal/controller/directory/sourceplex"
@@ -46,7 +47,7 @@ import (
 	providerscope "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/providerscope"
 	saml "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/saml"
 	scim "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/scim"
-	sourcekerberos "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/sourcekerberos"
+	sourcekerberospropertymapping "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/sourcekerberos"
 	sourceldappropertymapping "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/sourceldap"
 	sourceoauthpropertymapping "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/sourceoauth"
 	sourceplexpropertymapping "github.com/vhdirk/crossplane-provider-authentik/internal/controller/propertymapping/sourceplex"
@@ -101,6 +102,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		serviceconnectionkubernetes.Setup,
 		token.Setup,
 		group.Setup,
+		sourcekerberos.Setup,
 		sourceldap.Setup,
 		sourceoauth.Setup,
 		sourceplex.Setup,
@@ -126,7 +128,7 @@ func Setup(mgr ctrl.Manager, o controller.Options) error {
 		providerscope.Setup,
 		saml.Setup,
 		scim.Setup,
-		sourcekerberos.Setup,
+		sourcekerberospropertymapping.Setup,
 		sourceldappropertymapping.Setup,
 		sourceoauthpropertymapping.Setup,
 		sourceplexpropertymapping.Setup,

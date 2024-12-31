@@ -118,9 +118,6 @@ type SourceOAuthInitParameters struct {
 	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
 	RequestTokenURL *string `json:"requestTokenUrl,omitempty" tf:"request_token_url,omitempty"`
 
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (String) Generated.
 	// Generated.
 	UUID *string `json:"uuid,omitempty" tf:"uuid,omitempty"`
@@ -228,9 +225,6 @@ type SourceOAuthObservation struct {
 	// (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
 	// Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
 	RequestTokenURL *string `json:"requestTokenUrl,omitempty" tf:"request_token_url,omitempty"`
-
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
 
 	// (String) Generated.
 	// Generated.
@@ -373,10 +367,6 @@ type SourceOAuthParameters struct {
 	// +kubebuilder:validation:Optional
 	RequestTokenURL *string `json:"requestTokenUrl,omitempty" tf:"request_token_url,omitempty"`
 
-	// (String)
-	// +kubebuilder:validation:Optional
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (String) Generated.
 	// Generated.
 	// +kubebuilder:validation:Optional
@@ -439,7 +429,6 @@ type SourceOAuth struct {
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.consumerSecretSecretRef)",message="spec.forProvider.consumerSecretSecretRef is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.providerType) || (has(self.initProvider) && has(self.initProvider.providerType))",message="spec.forProvider.providerType is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.slug) || (has(self.initProvider) && has(self.initProvider.slug))",message="spec.forProvider.slug is a required parameter"
 	Spec   SourceOAuthSpec   `json:"spec"`
 	Status SourceOAuthStatus `json:"status,omitempty"`
 }

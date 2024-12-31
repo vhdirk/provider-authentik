@@ -328,9 +328,6 @@ spec:
                       (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
                       Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   userMatchingMode:
                     description: |-
                       (String) Allowed values:
@@ -622,9 +619,6 @@ spec:
                       (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
                       Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   userMatchingMode:
                     description: |-
                       (String) Allowed values:
@@ -832,10 +826,6 @@ spec:
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.providerType)
                 || (has(self.initProvider) && has(self.initProvider.providerType))'
-            - message: spec.forProvider.slug is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.slug)
-                || (has(self.initProvider) && has(self.initProvider.slug))'
           status:
             description: SourceOAuthStatus defines the observed state of SourceOAuth.
             properties:
@@ -939,9 +929,6 @@ spec:
                     description: |-
                       (String) Manually configure OAuth2 URLs when oidc_well_known_url is not set.
                       Manually configure OAuth2 URLs when `oidc_well_known_url` is not set.
-                    type: string
-                  slug:
-                    description: (String)
                     type: string
                   userMatchingMode:
                     description: |-

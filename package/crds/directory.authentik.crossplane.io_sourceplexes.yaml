@@ -281,9 +281,6 @@ spec:
                       - `any`
                       Defaults to `any`.
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   userMatchingMode:
                     description: |-
                       (String) Allowed values:
@@ -528,9 +525,6 @@ spec:
                       - `any`
                       Defaults to `any`.
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   userMatchingMode:
                     description: |-
                       (String) Allowed values:
@@ -734,10 +728,6 @@ spec:
             - message: spec.forProvider.plexTokenSecretRef is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.plexTokenSecretRef)'
-            - message: spec.forProvider.slug is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.slug)
-                || (has(self.initProvider) && has(self.initProvider.slug))'
           status:
             description: SourcePlexStatus defines the observed state of SourcePlex.
             properties:
@@ -789,9 +779,6 @@ spec:
                       - `all`
                       - `any`
                       Defaults to `any`.
-                    type: string
-                  slug:
-                    description: (String)
                     type: string
                   userMatchingMode:
                     description: |-

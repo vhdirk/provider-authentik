@@ -15,8 +15,13 @@ func Configure(p *config.Provider) {
 	})
 	p.AddResourceConfigurator("authentik_group", func(r *config.Resource) {
 		r.ShortGroup = shortGroup
+		r.Kind = "Group"
 
 		r.References["users"] = base.UserRef
+	})
+	p.AddResourceConfigurator("authentik_source_kerberos", func(r *config.Resource) {
+		r.ShortGroup = shortGroup
+		r.Kind = "SourceKerberos"
 	})
 	p.AddResourceConfigurator("authentik_source_ldap", func(r *config.Resource) {
 		r.ShortGroup = shortGroup

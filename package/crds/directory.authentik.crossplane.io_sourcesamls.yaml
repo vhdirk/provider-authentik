@@ -390,9 +390,6 @@ spec:
                   sloUrl:
                     description: (String)
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   ssoUrl:
                     description: (String)
                     type: string
@@ -754,9 +751,6 @@ spec:
                   sloUrl:
                     description: (String)
                     type: string
-                  slug:
-                    description: (String)
-                    type: string
                   ssoUrl:
                     description: (String)
                     type: string
@@ -959,10 +953,6 @@ spec:
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.name)
                 || (has(self.initProvider) && has(self.initProvider.name))'
-            - message: spec.forProvider.slug is a required parameter
-              rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
-                || ''Update'' in self.managementPolicies) || has(self.forProvider.slug)
-                || (has(self.initProvider) && has(self.initProvider.slug))'
             - message: spec.forProvider.ssoUrl is a required parameter
               rule: '!(''*'' in self.managementPolicies || ''Create'' in self.managementPolicies
                 || ''Update'' in self.managementPolicies) || has(self.forProvider.ssoUrl)
@@ -1074,9 +1064,6 @@ spec:
                     description: (String)
                     type: string
                   sloUrl:
-                    description: (String)
-                    type: string
-                  slug:
                     description: (String)
                     type: string
                   ssoUrl:

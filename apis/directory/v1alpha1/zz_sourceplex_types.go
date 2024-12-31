@@ -76,9 +76,6 @@ type SourcePlexInitParameters struct {
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (String) Generated.
 	// Generated.
 	UUID *string `json:"uuid,omitempty" tf:"uuid,omitempty"`
@@ -140,9 +137,6 @@ type SourcePlexObservation struct {
 	// - `any`
 	// Defaults to `any`.
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
-
-	// (String)
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
 
 	// (String) Generated.
 	// Generated.
@@ -236,10 +230,6 @@ type SourcePlexParameters struct {
 	// +kubebuilder:validation:Optional
 	PolicyEngineMode *string `json:"policyEngineMode,omitempty" tf:"policy_engine_mode,omitempty"`
 
-	// (String)
-	// +kubebuilder:validation:Optional
-	Slug *string `json:"slug,omitempty" tf:"slug,omitempty"`
-
 	// (String) Generated.
 	// Generated.
 	// +kubebuilder:validation:Optional
@@ -301,7 +291,6 @@ type SourcePlex struct {
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.clientId) || (has(self.initProvider) && has(self.initProvider.clientId))",message="spec.forProvider.clientId is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.name) || (has(self.initProvider) && has(self.initProvider.name))",message="spec.forProvider.name is a required parameter"
 	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.plexTokenSecretRef)",message="spec.forProvider.plexTokenSecretRef is a required parameter"
-	// +kubebuilder:validation:XValidation:rule="!('*' in self.managementPolicies || 'Create' in self.managementPolicies || 'Update' in self.managementPolicies) || has(self.forProvider.slug) || (has(self.initProvider) && has(self.initProvider.slug))",message="spec.forProvider.slug is a required parameter"
 	Spec   SourcePlexSpec   `json:"spec"`
 	Status SourcePlexStatus `json:"status,omitempty"`
 }

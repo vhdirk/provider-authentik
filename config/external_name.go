@@ -26,10 +26,11 @@ var ExternalNameConfigs = map[string]config.ExternalName{
 	"authentik_tenant": config.IdentifierFromProvider,
 	"authentik_token":  config.IdentifierFromProvider,
 
-	"authentik_source_ldap":  config.IdentifierFromProvider,
-	"authentik_source_oauth": config.IdentifierFromProvider,
-	"authentik_source_plex":  config.IdentifierFromProvider,
-	"authentik_source_saml":  config.IdentifierFromProvider,
+	"authentik_source_kerberos": config.ParameterAsIdentifier("slug"),
+	"authentik_source_ldap":     config.ParameterAsIdentifier("slug"),
+	"authentik_source_oauth":    config.ParameterAsIdentifier("slug"),
+	"authentik_source_plex":     config.ParameterAsIdentifier("slug"),
+	"authentik_source_saml":     config.ParameterAsIdentifier("slug"),
 
 	"authentik_policy_binding":       config.IdentifierFromProvider,
 	"authentik_policy_dummy":         config.IdentifierFromProvider,
